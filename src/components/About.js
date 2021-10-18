@@ -8,12 +8,18 @@ export default function About() {
             <h1 className="title-font sm:text-4xl text-3xl mb-4 font-medium text-white">
               Hi, I'm Anju.
               <br className="hidden lg:inline-block" />I love to build amazing
-              apps.
+              apps and websites.
             </h1>
             <p className="mb-8 leading-relaxed">
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Qui
-              laborum quasi, incidunt dolore iste nostrum cupiditate voluptas?
-              Laborum, voluptas natus?
+              I began my journey as a software developer after graduating with a
+              Bachelor of Engineering in Information Science and Technology in
+              2005. I have worked on both front-end and back-end development. I
+              have developed Java desktop and web applications, worked on IBM
+              Lotus Domino Designer, and React js. I have also done software
+              manual testing. <br /> Other than coding, I enjoy watching
+              science-fiction movies and tv shows. Inception and Dark are my
+              favorites. I am currently watching Supernatural with my daughter.
+              I also love listening to podcasts by Eckhart Tolle.
             </p>
             <div className="flex justify-center">
               <a

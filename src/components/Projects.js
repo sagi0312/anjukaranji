@@ -13,35 +13,41 @@ export default function Projects() {
               Apps I've Built
             </h1>
             <p className="lg:w-2/3 mx-auto leading-relaxed text-base">
-              Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-              Explicabo facilis repellat ab cupiditate alias vero aliquid
-              obcaecati quisquam fuga dolore.
+              I started my career with Java web based programming and worked on
+              IBM Lotus Domino and then Java Desktop Application development. I
+              have done software manual testing, wordpress website development
+              and currently work as a computer programming tutor. Here are some
+              of my favorite projects.
             </p>
           </div>
           <div className="flex flex-wrap -m-4">
             {projects.map((project) => (
-              <a
-                href={project.link}
-                key={project.image}
-                className="sm:w-1/2 w-100 p-4"
-              >
+              <h2 key={project.title} className="sm:w-1/2 w-100">
                 <div className="flex relative">
-                  <img
-                    alt="gallery"
-                    className="absolute inset-0 w-full h-full object-cover object-center"
-                    src={project.image}
-                  />
-                  <div className="px-8 py-10 relative z-10 w-full border-4 border-gray-800 bg-gray-900 opacity-0 hover:opacity-100">
+                  <div className="px-8 py-10 relative z-10 w-full border-4 border-gray-800 bg-gray-900 opacity-100">
                     <h2 className="tracking-widest text-sm title-font font-medium text-green-400 mb-1">
                       {project.subtitle}
                     </h2>
                     <h1 className="title-font text-lg font-medium text-white mb-3">
                       {project.title}
                     </h1>
+                    <h1 className="title-font text-lg font-medium text-white mb-3"></h1>
                     <p className="leading-relaxed">{project.description}</p>
+                    {project.link ? (
+                      <>
+                        <a
+                          className="text-yellow-400 leading-relaxed"
+                          href={project.link}
+                        >
+                          https://www.kbwc.org
+                        </a>
+                      </>
+                    ) : (
+                      <p></p>
+                    )}
                   </div>
                 </div>
-              </a>
+              </h2>
             ))}
           </div>
         </div>

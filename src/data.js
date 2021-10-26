@@ -1,35 +1,31 @@
 export const projects = [
   {
-    title: "React Reserve",
-    subtitle: "MERN Stack",
+    title: "Office Automation Software",
+    subtitle: "Lotus Domino Designer",
     description:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium dolore rerum laborum iure enim sint nemo omnis voluptate exercitationem eius?",
-    image: "./laptop.jpg",
-    link: "https://reactbootcamp.com",
+      "Software to itemize, stockpile and schedule delivery of software devices supplied by the company, New Wave Pvt. Ltd., Bangalore.",
+    link: "",
   },
   {
-    title: "React Tracks",
-    subtitle: "React and Python",
+    title: "Website",
+    subtitle: "Wordpress CMS",
     description:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium dolore rerum laborum iure enim sint nemo omnis voluptate exercitationem eius?",
-    image: "./laptop.jpg",
-    link: "https://reedbarger.com",
+      "Ecommerce Website, for the non-profit KBWC Outreach in Stone Mountain, Georgia",
+    link: "https://www.kbwc.org",
   },
   {
-    title: "DevChat",
-    subtitle: "React and Firebase",
+    title: "Export Control Program enforcement application",
+    subtitle: "Lotus Workflow",
     description:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium dolore rerum laborum iure enim sint nemo omnis voluptate exercitationem eius?",
-    image: "./laptop.jpg",
-    link: "https://jsbootcamp.com",
+      "Worked with a team to design and develop the software for Socrates Pvt. Ltd, using Lotus Workflow to check the Bill of Materials of projects against controlled lists in order to red-flag transactions that include banned items",
+    link: "",
   },
   {
-    title: "Epic Todo App",
-    subtitle: "React Hooks",
+    title: "NClaves",
+    subtitle: "Java Swing with MVC",
     description:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium dolore rerum laborum iure enim sint nemo omnis voluptate exercitationem eius?",
-    image: "./laptop.jpg",
-    link: "https://pythonbootcamp.com",
+      "An application that enables elderly people who live by themselves to stay connected with their family, trusted friends, healthcare providers and emergency services through a Java SE desktop-based application.",
+    link: "",
   },
 ];
 export const skills = [
@@ -41,4 +37,6 @@ export const skills = [
   "Spring Framework",
   "Hibernate",
   "SQL",
+  "Wordpress",
+  "Software Manual Testing",
 ];

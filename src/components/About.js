@@ -11,15 +11,17 @@ export default function About() {
               apps and websites.
             </h1>
             <p className="mb-8 leading-relaxed">
-              I began my journey as a software developer after graduating with a
+              I began my journey as a Software Engineer after graduating with a
               Bachelor of Engineering in Information Science and Technology in
               2005. I have worked on both front-end and back-end development. I
               have developed Java desktop and web applications, worked on IBM
-              Lotus Domino Designer, and React js. I have also done software
-              manual testing. <br /> Other than coding, I enjoy watching
-              science-fiction movies and tv shows. Inception and Dark are my
-              favorites. I am currently watching Supernatural with my daughter.
-              I also love listening to podcasts by Eckhart Tolle.
+              Lotus Domino Designer, and React js. I have done software manual
+              testing and taught Java programming. <br /> Other than coding, I
+              enjoy watching science-fiction movies and tv shows. Inception and
+              Dark are my favorites. I am currently watching Supernatural with
+              my daughter. I have an overweight tabby cat. I love listening to
+              podcasts by Eckhart Tolle. My favorite book is To Sir, With Love.
+              I enjoy volunteering my time at hospice and homeless shelters.
             </p>
             <div className="flex justify-center">
               <a
@@ -40,7 +42,7 @@ export default function About() {
             <img
               className="object-cover object-center rounded"
               alt="hero"
-              src="./pic6-crop.jpg"
+              src="./pic-coat.jpg"
             />
           </div>
         </div>

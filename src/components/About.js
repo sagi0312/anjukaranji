@@ -8,20 +8,26 @@ export default function About() {
             <h1 className="title-font sm:text-4xl text-3xl mb-4 font-medium text-white">
               Hi, I'm Anju.
               <br className="hidden lg:inline-block" />I love to build amazing
-              apps and websites.
+              apps and websites and working with themes towards common goals.
             </h1>
             <p className="mb-8 leading-relaxed">
               I began my journey as a Software Engineer after graduating with a
               Bachelor of Engineering in Information Science and Technology in
-              2005. I have worked on both front-end and back-end development. I
-              have developed Java desktop and web applications, worked on IBM
-              Lotus Domino Designer, and React js. I have done software manual
-              testing and taught Java programming. <br /> Other than coding, I
-              enjoy watching science-fiction movies and tv shows. Inception and
-              Dark are my favorites. I am currently watching Supernatural with
-              my daughter. I have an overweight tabby cat. I love listening to
-              podcasts by Eckhart Tolle. My favorite book is To Sir, With Love.
-              I enjoy volunteering my time at hospice and homeless shelters.
+              2005. I have worked on both front-end and software testing. I have
+              developed websites and wen applications using reactjs, worked on
+              IBM Lotus Domino Designer, and React js. I have extensive software
+              testing experience, helping teams achieve automation goals,
+              introducing efficiencies in their process of going live. I also am
+              an avid follower and practicioner of agile methodologies including
+              scrumban, leveraging tools like atlassian, mero, trello and
+              others. I love to explore open source projects and believe in
+              community led development methodology of building amazing things.
+              I posess an overall understanding of what business goals are
+              achieved out of what we build, test and deliver through code.{" "}
+              <br /> Other than coding, I enjoy love following digital marketing
+              trends, collaborating with other engineers to build free websites/
+              applications as community service. In my free I love spending time
+              with my daughter watching science-fiction shows.
             </p>
             <div className="flex justify-center">
               <a

@@ -20,8 +20,6 @@ export default function Skills() {
             >
               http://www.helptrust.org
             </a>
-            . I recently completed a 4 month internship as a manual tester at
-            ClassCalc.
           </p>
         </div>
         <div className="flex flex-wrap lg:w-4/5 sm:mx-auto sm:mb-2 -mx-2">

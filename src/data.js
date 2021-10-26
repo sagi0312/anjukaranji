@@ -38,5 +38,5 @@ export const skills = [
   "Hibernate",
   "SQL",
   "Wordpress",
-  "Software Manual Testing",
+  "Software Testing",
 ];

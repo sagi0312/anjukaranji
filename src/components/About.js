@@ -12,20 +12,18 @@ export default function About() {
             </h1>
             <p className="mb-8 leading-relaxed">
               I began my journey as a Software Engineer after graduating with a
-              Bachelor of Engineering in Information Science and Technology in
-              2005. I have worked on both front-end and software testing. I have
-              developed websites and wen applications using reactjs, worked on
-              IBM Lotus Domino Designer, and React js. I have extensive software
-              testing experience, helping teams achieve automation goals,
-              introducing efficiencies in their process of going live. I also am
+              Bachelor of Engineering in Information Sciences. 
+              I both front-end development and software testing experience. I have
+              developed websites and applications using reactjs, css3 and html5. I have extensive software
+              testing experience. I am also
               an avid follower and practicioner of agile methodologies including
-              scrumban, leveraging tools like atlassian, mero, trello and
+              scrumban, leveraging tools like atlassian, miro, trello and
               others. I love to explore open source projects and believe in
-              community led development methodology of building amazing things.
-              I posess an overall understanding of what business goals are
+              community led development methodologies.
+              I possess an overall understanding of what business goals are
               achieved out of what we build, test and deliver through code.{" "}
-              <br /> Other than coding, I enjoy love following digital marketing
-              trends, collaborating with other engineers to build free websites/
+              <br /> Other than coding, I enjoy following digital marketing
+              trends, collaborating with other engineers to build free websites and 
               applications as community service. In my free I love spending time
               with my daughter watching science-fiction shows.
             </p>

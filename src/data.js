@@ -21,11 +21,11 @@ export const projects = [
     link: "",
   },
   {
-    title: "NClaves",
-    subtitle: "Java Swing with MVC",
+    title: "Help Trust Org",
+    subtitle: "Website",
     description:
-      "An application that enables elderly people who live by themselves to stay connected with their family, trusted friends, healthcare providers and emergency services through a Java SE desktop-based application.",
-    link: "",
+      "A website that focuses on getting underprivileged children the resources and support for basic education and skill.",
+    link: "http://www.helptrust.org",
   },
 ];
 export const skills = [

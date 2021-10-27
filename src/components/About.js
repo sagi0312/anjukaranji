@@ -24,7 +24,7 @@ export default function About() {
               overall understanding of what business goals are achieved out of
               what we build, test and deliver through code. <br /> Other than
               coding, I love following digital marketing trends, collaborating
-              with other engineers to build free websites/ applications as
+              with other engineers to build free websites/applications as
               community service. In my free time, I love watching
               science-fiction shows with my daughter.
             </p>

@@ -21,10 +21,10 @@ export const projects = [
     link: "",
   },
   {
-    title: "Help Trust Org",
+    title: "Help Trust",
     subtitle: "Website",
     description:
-      "A website that focuses on getting underprivileged children the resources and support for basic education and skill.",
+      "A website that focuses on getting underprivileged children the resources and support for basic education and skill. A non-profit that believes education must be free.",
     link: "http://www.helptrust.org",
   },
 ];

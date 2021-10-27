@@ -39,7 +39,7 @@ export default function Projects() {
                           className="text-yellow-400 leading-relaxed"
                           href={project.link}
                         >
-                          https://www.kbwc.org
+                          {project.link}
                         </a>
                       </>
                     ) : (

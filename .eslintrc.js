@@ -1,13 +1,11 @@
 {
-  ("rules");
-  {
-    ("jsx-a11y/anchor-is-valid");
-    [
+  "rules": {
+    "jsx-a11y/anchor-is-valid": [
       "error",
       {
-        components: ["Link"],
-        specialLink: ["to"],
-      },
-    ];
+        "components": ["Link"],
+        "specialLink": ["to"]
+      }
+    ]
   }
 }

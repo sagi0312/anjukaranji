@@ -1,23 +1,30 @@
 export const projects = [
   {
+    title: "Construction Software Application Development",
+    subtitle: "Front-End using React and CSS",
+    description:
+      "Contributing to the development of a full-stack construction software application aimed at optimizing the home-building process.Collaborating with the front-end team to create a user-friendly interface using React.js and CSS. Backend utilized Replicache for offline data synchronization and Prisma, Postgres, and Aurora for the database",
+    link: "",
+  },
+  {
     title: "React Websites for Amazon Inc.",
     subtitle: "React-based Websites",
     description:
-      "Member of a high visibility team that built full stack applications for supply chain transportation operations for sort centers. Developed UI for labor planning, shift planning, roster generation, performance tracking.",
+      "Played a pivotal role in a high visibility team that built full stack applications for supply chain transportation operations for sort centers. Developed UI for labor planning, shift planning, roster generation and performance tracking using React and leveraged AWS services such as Lambda, Aurora, SNS, SQS, and CloudFormation.",
     link: "",
   },
   {
     title: "AWS for Amazon Inc.",
     subtitle: "Micro Services, Cloud Architecture",
     description:
-      "Facilitated the migration of JSON data with more than 14 million records inserted in 15 minutes time to be used across the country in more than 50 sort centers - to manage more than 50k employees.",
+      "Facilitated the migration of JSON data with more than 14 million records inserted in 15 minutes time to be used across the country in more than 50 sort centers - to manage more than 50k employees. Experience in microservices, cloud infrastructure, AWS. Demonstrated ability to develop and maintain large-scale projects.",
     link: "",
   },
   {
     title: "Office Automation Software",
     subtitle: "Lotus Domino Designer",
     description:
-      "Software to itemize, stockpile and schedule delivery of software devices supplied by the company, New Wave Pvt. Ltd., Bangalore.",
+      "Created office automation software using IBM Domino Designer for New Wave Pvt. Ltd., facilitating inventory management and scheduling of software device deliveries. Export Control Program enforcement application for Socrates Pvt. Ltd. Led test environment setup, manage test processes, bug tracking and reporting.",
     link: "",
   },
   {

@@ -12,14 +12,14 @@ export default function About() {
             </h1>
             <p className="mb-8 leading-relaxed">
               I began my journey as a Software Engineer after graduating with a
-              Bachelor of Engineering in Information Science and Technology in
-              2005. I have worked on both Front-end and back-end development. I
-              have developed websites and web applications using react js, CSS
-              and other libraries. I have extensive backend development
-              experience in microservices, cloud infrastructure and AWS. I love
-              helping my team achieve goals in serving the customer. I am also
-              an avid follower and practicioner of agile methodologies. I love
-              to explore open source projects and believe in community led
+              Bachelor of Engineering in Information Science and Technology. I
+              have worked on both Front-end and back-end development. I have
+              developed websites and web applications using react js, CSS and
+              other libraries. I have extensive backend development experience
+              in microservices, cloud infrastructure and AWS. I love helping my
+              team achieve goals in serving the customer. I am also an avid
+              follower and practicioner of agile methodologies. I love to
+              explore open source projects and believe in community led
               development. I possess an overall understanding of what business
               goals are achieved out of what we build, test and deliver through
               code. <br /> Other than coding, I love following digital marketing

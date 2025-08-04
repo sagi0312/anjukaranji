@@ -26,8 +26,8 @@ A modern, responsive portfolio website showcasing my work as a Full-Stack Softwa
 ## 📧 Contact
 Feel free to reach out for opportunities or collaboration!
 
-LinkedIn: linkedin.com/in/anju-karanji
-GitHub: github.com/sagi0312
+- LinkedIn: linkedin.com/in/anju-karanji
+- GitHub: github.com/sagi0312
 
 
 Built with ❤️ by Anju Karanji

@@ -26,7 +26,7 @@ const posts = [
 
 export default function Writing() {
   return (
-    <section id="writing">
+    <section id="writings">
       <div className="container px-5 pt-20 pb-24 mx-auto">
         <div className="text-center mb-24">
           <BookOpenIcon className="w-10 inline-block mb-4 " />

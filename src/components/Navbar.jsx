@@ -21,6 +21,14 @@ export default function Navbar() {
           <a href="#skills" className="mr-5 hover:text-white">
             Skills
           </a>
+          <a
+            href="/Anju_Karanji_Resume.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="mr-5 hover:text-white"
+          >
+            Résumé
+          </a>
         </nav>
         <a
           href="#contact"

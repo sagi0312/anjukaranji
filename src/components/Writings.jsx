@@ -30,11 +30,20 @@ const posts = [
   },
 ];
 
+const storyPosts = [
+  {
+    title: "Breaking the Rules at Privet Drive: A React Origin Story",
+    blurb:
+      "A whimsical origin story of React — from JSX skepticism, to Fiber, to Hooks, to the Compiler era.",
+    href: "https://dev.to/sagi0312/react-and-the-philosophers-component-4dnk",
+  },
+];
+
 export default function Writing() {
   return (
     <section id="writings">
       <div className="container p-12 sm:p-16 lg:p-20 mx-auto">
-        <div className="text-center mb-24">
+        <div className="text-center mb-20">
           <BookOpenIcon className="w-10 inline-block mb-4 " />
           <h1 className="sm:text-4xl text-3xl font-medium title-font text-white mb-4">
             Writings
@@ -48,6 +57,38 @@ export default function Writing() {
 
         <div className="flex flex-wrap justify-center -m-4">
           {posts.map((post) => (
+            <div key={post.title} className="p-4 sm:w-1/2 lg:w-1/3">
+              <a
+                href={post.href}
+                target="_blank"
+                rel="noreferrer"
+                className="block bg-gray-800 rounded p-6 h-full transform transition-transform duration-300 hover:scale-105 hover:border-green-500 border border-transparent focus:outline-none focus:ring-2 focus:ring-green-500"
+                aria-label={`Read ${post.title} on dev.to`}
+              >
+                <h3 className="text-white font-semibold text-md sm:text-lg mb-2">
+                  {post.title}
+                </h3>
+                <p className="text-white/80 text-sm mb-4">{post.blurb}</p>
+                <div className="inline-flex items-center text-green-400 hover:text-green-300 text-sm font-medium">
+                  Read on dev.to
+                  <ArrowTopRightOnSquareIcon className="w-4 h-4 ml-1" />
+                </div>
+              </a>
+            </div>
+          ))}
+        </div>
+        <div className="text-center mb-20 mt-16 sm:mt-20 lg:mt-24">
+          <h2 className="sm:text-3xl text-2xl font-medium title-font text-white mb-4">
+            Stories & Essays
+          </h2>
+          <p className="text-base leading-relaxed xl:w-2/4 lg:w-3/4 mx-auto text-white/80">
+            Playful explorations of frontend history and ideas — starting with
+            React’s whimsical origin story.
+          </p>
+        </div>
+
+        <div className="flex flex-wrap justify-center -m-4">
+          {storyPosts.map((post) => (
             <div key={post.title} className="p-4 sm:w-1/2 lg:w-1/3">
               <a
                 href={post.href}

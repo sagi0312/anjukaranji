@@ -89,7 +89,10 @@ export default function Writing() {
 
         <div className="flex flex-wrap justify-center -m-4">
           {storyPosts.map((post) => (
-            <div key={post.title} className="p-4 sm:w-1/2 lg:w-1/3">
+            <div
+              key={post.title}
+              className="sm:w-1/2 lg:w-1/3 → sm:w-2/3 lg:w-1/2"
+            >
               <a
                 href={post.href}
                 target="_blank"

@@ -26,6 +26,7 @@ export default function Contact() {
   return (
     <section id="contact" className="relative">
       <div className="container px-5 py-10 mx-auto flex sm:flex-nowrap flex-wrap">
+        {/* Map + Contact Info */}
         <div className="lg:w-2/3 md:w-1/2 bg-gray-900 rounded-lg overflow-hidden sm:mr-10 p-10 flex items-end justify-start relative">
           <iframe
             width="100%"
@@ -35,29 +36,72 @@ export default function Contact() {
             frameBorder={0}
             marginHeight={0}
             marginWidth={0}
-            style={{ filter: "opacity(0.7)" }}
+            style={{ filter: "opacity(0.65)" }}
             src="https://www.google.com/maps/embed/v1/place?q=Woodstock+Georgia&key=AIzaSyBFw0Qbyq9zTFTd-tUY6dZWTgaQzuU17R8"
           />
-          <div className="bg-gray-900 relative flex flex-wrap py-4 pr-10 rounded shadow-md">
-            <div className="lg:w-1/2 px-6">
-              <h2 className="title-font font-semibold text-white tracking-widest text-xs">
-                ADDRESS
-              </h2>
-              <p className="mt-1">
-                Woodstock <br />
-                Georgia
-              </p>
-            </div>
-            <div className="lg:w-1/2 px-6 mt-4 lg:mt-0">
-              <h2 className="title-font font-semibold text-white tracking-widest text-xs">
-                EMAIL
-              </h2>
-              <h2 className="text-indigo-400 leading-relaxed">
-                anjukaranji@gmail.com
-              </h2>
-            </div>
+          <div className="bg-gray-900/95 relative rounded-xl shadow-md p-6">
+            <dl className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-4">
+              <div>
+                <dt className="title-font font-semibold text-white tracking-widest text-xs">
+                  ADDRESS
+                </dt>
+                <dd className="mt-1 text-white/80">
+                  Woodstock,
+                  <br />
+                  Georgia
+                </dd>
+              </div>
+
+              <div>
+                <dt className="title-font font-semibold text-white tracking-widest text-xs">
+                  EMAIL
+                </dt>
+                <dd className="mt-1">
+                  <a
+                    href="mailto:anjukaranji@gmail.com"
+                    className="text-indigo-400 hover:text-indigo-300 underline decoration-indigo-500/40 underline-offset-2"
+                  >
+                    anjukaranji@gmail.com
+                  </a>
+                </dd>
+              </div>
+
+              <div>
+                <dt className="title-font font-semibold text-white tracking-widest text-xs">
+                  LINKEDIN
+                </dt>
+                <dd className="mt-1">
+                  <a
+                    href="https://www.linkedin.com/in/anju-karanji"
+                    target="_blank"
+                    rel="noreferrer"
+                    className="text-indigo-400 hover:text-indigo-300 underline decoration-indigo-500/40 underline-offset-2 break-all"
+                  >
+                    linkedin.com/in/anju-karanji
+                  </a>
+                </dd>
+              </div>
+
+              <div>
+                <dt className="title-font font-semibold text-white tracking-widest text-xs">
+                  GITHUB
+                </dt>
+                <dd className="mt-1">
+                  <a
+                    href="https://github.com/sagi0312"
+                    target="_blank"
+                    rel="noreferrer"
+                    className="text-indigo-400 hover:text-indigo-300 underline decoration-indigo-500/40 underline-offset-2 break-all"
+                  >
+                    github.com/sagi0312
+                  </a>
+                </dd>
+              </div>
+            </dl>
           </div>
         </div>
+
+        {/* Contact Form */}
         <form
           name="contact"
           data-netlify="true"

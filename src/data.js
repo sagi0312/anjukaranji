@@ -1,33 +1,43 @@
 export const projects = [
   {
     title: "ConTech Web Platform",
-    subtitle: "Frontend Engineer | React, TypeScript, AWS",
+    company: "Executive Homes",
+    subtitle: "Fullstack Engineer | React, TypeScript, AWS",
     description:
-      "Built React, TypeScript, and SCSS components for workflows like cutsheets, floor plans, and contractor checklists with Auth0 integration. Delivered pixel-perfect UIs from Figma and helped migrate to Replicache and Aurora for offline-first real-time syncing.",
+      "Engineered React/TypeScript components for workflows like cutsheets, floor plans, and contractor checklists. Integrated Auth0, shipped pixel-perfect UIs from Figma, and drove migration to Replicache + Aurora for offline-first collaboration.",
     link: "",
   },
   {
     title: "Labor Planning Tools",
-    subtitle: "Software Development Engineer | React, AWS",
+    company: "Amazon",
+    subtitle: "Software Development Engineer I | React, AWS",
     description:
-      "Built React and TypeScript tools for labor planning and shift automation across 140+ sort centers. Designed reusable UI components, integrated APIs, and collaborated with stakeholders to streamline shift scheduling, roster generation, and labor tracking workflows.",
+      "Built React/TypeScript tools powering labor planning and scheduling across 140+ sort centers. Delivered reusable UI components and APIs that improved staffing accuracy and cut manual reporting at global scale.",
     link: "",
   },
   {
     title: "AWS Migration Pipeline",
+    company: "Amazon",
     subtitle: "Backend Optimization | AWS Lambda, Aurora",
     description:
-      "Built a Lambda-driven migration pipeline to offload millions of MySQL records into Aurora databases at Amazon sort centers. Designed cron-based Lambdas with CDK, SQS, SNS, and CloudWatch, achieving 14M+ record migrations in under 15 minutes and drastically reducing database query times.",
+      "Designed a Lambda-driven pipeline that migrated 14M+ MySQL records into Aurora in under 15 minutes. Automated scheduling, error handling, and monitoring with CDK, SQS, and CloudWatch—reducing query latency from 30 minutes to seconds.",
     link: "",
   },
   {
-    title: "Other Experience",
-    subtitle: "Tutoring, Testing, Web Development",
+    title: "Early Career Applications",
+    company: "Various Clients",
+    subtitle: "Software Consultant | Java, Spring, Hibernate, SQL",
     description:
-      "Delivered Java lessons (Varsity Tutors), conducted mobile and web app testing (ClassCalc), and built responsive websites for nonprofits and businesses focused on usability, branding, and SEO. Early work included Java-based healthcare apps and office automation solutions.",
+      "Delivered enterprise apps for retail and IT clients using Java, Spring, and Hibernate. Built an office-automation system, compliance tracker, healthcare app (later NexHealth), and SETS—an internal tool for tracking employee skills.",
     link: "",
   },
 ];
+
+export const additionalExperience = {
+  title: "Additional Experiences",
+  description:
+    "Tutored Java (Varsity Tutors), tested mobile/web apps (ClassCalc), and built responsive nonprofit websites focused on usability, branding, and SEO.",
+};
 
 export const skills = [
   "React.js",

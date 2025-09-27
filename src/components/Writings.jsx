@@ -37,6 +37,12 @@ const storyPosts = [
       "A whimsical origin story of React — from JSX skepticism, to Fiber, to Hooks, to the Compiler era.",
     href: "https://dev.to/sagi0312/react-and-the-philosophers-component-4dnk",
   },
+  {
+    title: "Talking to My Code: React Compiler Saves the Day",
+    blurb:
+      "From job rejection to innovation and discovering how React Compiler solved my performance issues.",
+    href: "https://dev.to/sagi0312/building-a-voice-driven-page-builder-part-1-how-react-compiler-solved-my-performance-crisis-3cpg",
+  },
 ];
 
 export default function Writing() {
@@ -65,7 +71,7 @@ export default function Writing() {
                 className="block bg-gray-800 rounded p-6 h-full transform transition-transform duration-300 hover:scale-105 hover:border-green-500 border border-transparent focus:outline-none focus:ring-2 focus:ring-green-500"
                 aria-label={`Read ${post.title} on dev.to`}
               >
-                <h3 className="text-white font-semibold text-md sm:text-lg mb-2">
+                <h3 className="text-white font-semibold text-md sm:text-lg mb-2 h-20 sm:h-24 flex items-start">
                   {post.title}
                 </h3>
                 <p className="text-white/80 text-sm mb-4">{post.blurb}</p>
@@ -79,20 +85,17 @@ export default function Writing() {
         </div>
         <div className="text-center mb-20 mt-16 sm:mt-20 lg:mt-24">
           <h2 className="sm:text-3xl text-2xl font-medium title-font text-white mb-4">
-            Stories & Essays
+            Experiments & Stories
           </h2>
           <p className="text-base leading-relaxed xl:w-2/4 lg:w-3/4 mx-auto text-white/80">
-            Playful explorations of frontend history and ideas — starting with
-            React’s whimsical origin story.
+            From wild coding experiments to playful tech tales — exploring ideas
+            that probably shouldn't work but somehow do.
           </p>
         </div>
 
         <div className="flex flex-wrap justify-center -m-4">
           {storyPosts.map((post) => (
-            <div
-              key={post.title}
-              className="sm:w-1/2 lg:w-1/3 → sm:w-2/3 lg:w-1/2"
-            >
+            <div key={post.title} className="p-4 sm:w-1/2 lg:w-1/3">
               <a
                 href={post.href}
                 target="_blank"

@@ -33,7 +33,7 @@ export default function Projects() {
                       {project.title}
                     </h1>
                     {project.company && (
-                      <h3 className="text-base font-semibold text-green-400 mb-3">
+                      <h3 className="text-base font-semibold text-indigo-500 mb-3">
                         {project.company}
                       </h3>
                     )}

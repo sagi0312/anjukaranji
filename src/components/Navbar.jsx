@@ -22,7 +22,7 @@ export default function Navbar() {
             Skills
           </a>
           <a
-            href="/Anju_Karanji_Resume.pdf"
+            href="/Anju-Karanji-Resume.pdf"
             target="_blank"
             rel="noopener noreferrer"
             className="mr-5 hover:text-white"

@@ -35,7 +35,7 @@ const posts = [
     href: "https://dev.to/sagi0312/react-and-the-philosophers-component-4dnk",
   },
   {
-    title: "Talking to My Code: React Compiler Saves the Day",
+    title: "React and the City 💘: The Compiler Saves the Day",
     blurb:
       "From job rejection to innovation and discovering how React Compiler solved my performance issues.",
     href: "https://dev.to/sagi0312/building-a-voice-driven-page-builder-part-1-how-react-compiler-solved-my-performance-crisis-3cpg",

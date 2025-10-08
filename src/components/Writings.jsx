@@ -40,6 +40,12 @@ const posts = [
       "From job rejection to innovation and discovering how React Compiler solved my performance issues.",
     href: "https://dev.to/sagi0312/building-a-voice-driven-page-builder-part-1-how-react-compiler-solved-my-performance-crisis-3cpg",
   },
+  {
+    title: "Unsolicited Wisdom from My Ceramic Life Coach",
+    blurb:
+      "A caffeinated conversation with my sarcastic mug — on burnout, refactors, and rediscovering the joy of coding.",
+    href: "https://dev.to/sagi0312/unsolicited-wisdom-from-my-ceramic-life-coach-1m04",
+  },
 ];
 
 export default function Writing() {

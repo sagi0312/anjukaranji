@@ -46,6 +46,12 @@ const posts = [
       "A caffeinated conversation with my sarcastic mug — on burnout, refactors, and rediscovering the joy of coding.",
     href: "https://dev.to/sagi0312/unsolicited-wisdom-from-my-ceramic-life-coach-1m04",
   },
+  {
+    title: "React and the City ⚡️: Nevertheless, She Persisted",
+    blurb:
+      "Continuing the SayBuild journey — from ambitious regex experiments to the adoption of an MCP server architecture.",
+    href: "https://dev.to/sagi0312/react-and-the-city-nevertheless-she-persisted-3n9a",
+  },
 ];
 
 export default function Writing() {

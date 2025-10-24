@@ -41,7 +41,7 @@ const posts = [
     href: "https://dev.to/sagi0312/building-a-voice-driven-page-builder-part-1-how-react-compiler-solved-my-performance-crisis-3cpg",
   },
   {
-    title: "Unsolicited Wisdom from My Ceramic Life Coach",
+    title: "☕️ Unsolicited Wisdom from My Ceramic Life Coach",
     blurb:
       "A caffeinated conversation with my sarcastic mug — on burnout, refactors, and rediscovering the joy of coding.",
     href: "https://dev.to/sagi0312/unsolicited-wisdom-from-my-ceramic-life-coach-1m04",
@@ -51,6 +51,12 @@ const posts = [
     blurb:
       "Continuing the SayBuild journey — from ambitious regex experiments to the adoption of an MCP server architecture.",
     href: "https://dev.to/sagi0312/react-and-the-city-nevertheless-she-persisted-3n9a",
+  },
+  {
+    title: "React and the City ⚔️ Part 3: Return of the MCP",
+    blurb:
+      "When an AI helps you integrate another AI — wiring MCP servers, Claude's API, and learning the 5-line rule.",
+    href: "https://dev.to/sagi0312/react-and-the-city-part-3-return-of-the-mcp-1ede",
   },
 ];
 

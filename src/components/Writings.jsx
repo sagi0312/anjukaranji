@@ -58,6 +58,12 @@ const posts = [
       "When an AI helps you integrate another AI — wiring MCP servers, Claude's API, and learning the 5-line rule.",
     href: "https://dev.to/sagi0312/react-and-the-city-part-3-return-of-the-mcp-1ede",
   },
+  {
+    title: "When Life Gives You",
+    blurb:
+      "A Little Sass Makes Life Sexy - A playful poem about navigating life's chaos. From juggling lemons to treasuring what remains.",
+    href: "https://medium.com/@sagi0312/when-life-gives-you-273ba8db6c98",
+  },
 ];
 
 export default function Writing() {

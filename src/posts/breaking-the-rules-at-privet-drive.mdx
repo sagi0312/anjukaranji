@@ -1,0 +1,76 @@
+---
+title: "Breaking the Rules at Privet Drive: A React Origin Story"
+blurb: "A whimsical origin story of React — from JSX skepticism, to Fiber, to Hooks, to the Compiler era."
+date: "2024-01-15"
+slug: "breaking-the-rules-at-privet-drive"
+---
+
+The frontend developers of number 2013, Privet Drive, were proud to say they kept their code perfectly normal, thank you very much. HTML stayed in its cupboard, CSS in its closet, JavaScript in its corner — and they liked it that way. And here I was, breaking all their sacred rules.
+
+I was small and skinny for my age, and wore my cousin Angular's oversized hand-me-downs. My code looked clunky next to my bigger, successful cousin.
+
+One morning, on May 29th, 2013, a letter arrived — not by owl, but on a stage at JSConf US. It wasn't sealed in wax, but in curiosity. Inside: JSX.
+
+That day Jordan Walke introduced me to the world; I wore my Sunday best to the conference and the programmers looked skeptical. Some even hostile. "JSX! Mixing HTML and JavaScript? An abomination," they scoffed. Most of the world still bowed to the Dark Lord jQuery.
+
+Underneath my awkwardness, I had talent. My secret sauce -> always redraw the whole tree.
+
+_Not literally - duh, I'm not a barbarian._
+
+To many developers, the DOM felt like a brick wall. I discovered a secret passage — a virtual DOM, hidden in plain sight — where updates could slip through. There, I could diff trees and apply only the changes: same type? patch props; different type? replace the node.
+
+At first, my children were shuffled about like nameless first-years on the train. But then I found the magic of a key. At last, each child was sorted not by seat, but by identity — like a Sorting Hat whispering who they truly were.
+
+Two years had passed by then. 2015 was a big year for me. I started embracing simple, elegant, stateless functional components - little functions that took props and returned JSX, nothing more. Little did I know I was planting the seeds of my own future, but I'm getting ahead of myself.
+
+By then, I was v0.14. One day at lunch, this kid came and sat next to me. "Hey, I'm JavaScript ES6+," he said casually. "That virtual DOM thing you do? Pretty impressive."
+
+Just like that, he became my best friend.
+
+TypeScript soon joined my circle too. The RFC process was my ancient headmaster: patient and wise. Each new spell of syntax or feature was weighed in his study before being released to the wider world.
+
+I also met Netflix and felt this overwhelming feeling of acceptance.
+
+I was still using my stack-based reconciliation back then. Start at the root, render each node, dive into the children — all the way down to the leaves before climbing back up. Recursive, synchronous, relentless. Since I was single-threaded, I froze the entire world until my work was done. It wasn't elegance; it was brute determination.
+
+At first, I thought this was enough. But as I matured, I began to see the cracks: jank, dropped frames, unresponsive interfaces. My users noticed too — and it hurt. Somewhere deep inside, I felt the stirrings. The first whispers of what would eventually become Fiber.
+
+## The Fiber Era
+
+Cut to 2017. I completely rewrote my react internal engine to use fiber. Each React element had a corresponding fiber node and they are no longer re-created every render.
+
+I learned patience. I could split my work into chunks, pause midway, and resume later — or even abandon tasks I decided weren't worth finishing.
+
+I began to live in two worlds at once: a current tree, the one you saw on the screen, and a work-in-progress tree, where I quietly shaped the next update. For the first time, I could prioritize my tasks — urgent updates first, background work later. This discipline opened the door to features I'd only dreamed of before: Concurrent Mode, Suspense, even hooks like useDeferredValue.
+
+At last, I had come of age!
+
+## Meeting Hooks
+
+Before I knew it, it was 2018. And that's when I meet hooks! One look and I knew I was in love! Suddenly, everywhere I turned, it was useState, useEffect, useContext. They weren't just utilities, they were a new mental model.
+
+Hooks transformed me. It felt like spring had finally arrived — and yes, roses had never smelled sweeter.
+
+With hooks, I found myself!
+
+## The Compiler Arrives
+
+My dear developers still loved me, but I could sense their growing frustration. The work of building UIs had become a balancing act: memoize too much and you choke performance, memoize too little and you drown in re-renders. useCallback, useMemo, React.memo — these spells cluttered their minds, stealing energy from the real joy of UI creation.
+
+I knew something had to change. For years, I had prided myself on my runtime capabilities — Fiber, scheduling, concurrency. But I had limits. I swallowed my pride and called in reinforcements.
+
+My brilliant, affluent uncle arrived — the React Compiler. He could see through my components, analyze them at build time, and slip optimizations in automatically. Where I once asked developers to carry the burden of performance, he promised to carry it for them.
+
+Looking back, I realize I may have outgrown my teenage infatuation with Hooks. Yet I haven't left them behind — not fully. For now, they're still by my side, shaping how I think and speak. And as I continue to evolve, I can see the React Compiler settling into something deeper as well - not just a distant uncle, but a father, a true part of my family.
+
+Soon it would be time for the next major release.
+
+<div className="text-center text-gray-500 my-8">• • •</div>
+
+"Will you write to me over the summer?" one developer asked as they pushed their latest commit.
+
+I smiled. They still didn't realize I was always there, always evolving.
+
+"I'll be around," I promised. "After all, someone has to keep breaking the rules at Privet Drive."
+
+For the first time in my life, I was truly excited to go home — because now I knew where I belonged: in the world of frontend development, making beautiful interfaces feel smooth, alive, and lightning fast.

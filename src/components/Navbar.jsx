@@ -1,26 +1,62 @@
+import { Link, useLocation } from "react-router-dom";
 import { ArrowRightIcon } from "@heroicons/react/24/solid";
 
 export default function Navbar() {
+  const location = useLocation();
+  const isHomePage = location.pathname === "/";
+
+  const scrollToSection = (sectionId) => {
+    if (!isHomePage) {
+      window.location.href = `/#${sectionId}`;
+    } else {
+      const element = document.getElementById(sectionId);
+      element?.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
   return (
-    <header className="bg-gray-800 md:sticky top-0 z-10">
+    <header className="bg-gray-800 sticky top-0 z-10">
       <div className="container mx-auto flex flex-wrap pt-4 pl-5 pb-4 pl-5 flex-col md:flex-row items-center">
         <div className="title-font font-medium text-white mb-4 md:mb-0">
-          {
-            <a href="#about" className="ml-3 text-xl">
-              Anju Karanji
-            </a>
-          }
+          <Link to="/" className="ml-3 text-xl">
+            Anju Karanji
+          </Link>
         </div>
         <nav className="md:mr-auto md:ml-4 md:py-1 md:pl-4 md:border-l md:border-gray-700	flex flex-wrap items-center text-base justify-center">
-          <a href="#projects" className="mr-5 hover:text-white">
-            Past Work
-          </a>
-          <a href="#writings" className="mr-5 hover:text-white">
-            Writings
-          </a>
-          <a href="#skills" className="mr-5 hover:text-white">
-            Skills
-          </a>
+          {isHomePage ? (
+            <>
+              <a href="#projects" className="mr-5 hover:text-white">
+                Past Work
+              </a>
+              <a href="#writings" className="mr-5 hover:text-white">
+                Writings
+              </a>
+              <a href="#skills" className="mr-5 hover:text-white">
+                Skills
+              </a>
+            </>
+          ) : (
+            <>
+              <button
+                onClick={() => scrollToSection("projects")}
+                className="mr-5 hover:text-white bg-transparent border-0 cursor-pointer text-base"
+              >
+                Past Work
+              </button>
+              <button
+                onClick={() => scrollToSection("writings")}
+                className="mr-5 hover:text-white bg-transparent border-0 cursor-pointer text-base"
+              >
+                Writings
+              </button>
+              <button
+                onClick={() => scrollToSection("skills")}
+                className="mr-5 hover:text-white bg-transparent border-0 cursor-pointer text-base"
+              >
+                Skills
+              </button>
+            </>
+          )}
           <a
             href="/Anju-Karanji-Resume.pdf"
             target="_blank"

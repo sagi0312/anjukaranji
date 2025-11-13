@@ -1,0 +1,127 @@
+---
+title: "React and the City ⚡️: Nevertheless, She Persisted"
+blurb: "Continuing the SayBuild journey — from ambitious regex experiments to the adoption of an MCP server architecture."
+date: "2024-04-15"
+slug: "react-and-the-city-nevertheless-she-persisted"
+---
+
+## ⚡️ Part 2: May the Force Be With You!
+
+**FIELD NOTE:** Continuing research on Project SayBuild, the voice-driven page builder.
+
+After React Compiler restored my faith in chivalry, I decided to flirt with English literature — language parsing. The results were… how shall I put it? Humbling.
+
+## 🔬 EXPERIMENT 2: Custom Pattern Matching for Voice Commands
+
+**Objective:**
+
+Teach the builder to understand speech without using an LLM.
+
+**Why skip the obvious solution?**
+
+Pride. Pure, unfounded pride.
+
+**Hypothesis:**
+
+If I can break every command into verbs, nouns, prepositions, and modifiers — then map them to CRUD operations on the component tree — I'll have unearthed "intelligence" once again.
+
+**Estimated time to success:** 30 minutes. With beer breaks every 5.
+
+### 🧠 Day 1 — Confidence Level: 100%
+
+My parser is elegant. My pattern matching is flawless.
+
+I'm basically building natural language understanding from scratch. Future historians will bow before the great Anju.
+
+### 😵 Day 2 — Confidence Level: 12%
+
+Turns out humans don't speak in clean patterns.
+
+They mumble. They change their minds mid-sentence. They say things like, "Add a big-ish button in the middle of that... uh... brownish thingy."
+
+Regex cried. I cried. We all cried.
+
+### 🪦 DAY 3 – 3:00 AM
+
+I surrender.
+
+Deleted half the code. Summoned the LLM like a desperate summoning ritual, ego served on a platter.
+
+It responded immediately.
+
+It understood "Add a big-ish button in the middle of the brownish thingy."
+
+It knew which component "it" referred to.
+
+It handled every edge case I'd spent three days regex-fighting.
+
+**Time to implement:** 45 minutes.
+
+### ☠️ Conclusion:
+
+Hubris detected.
+
+Pattern matching is strong with the Dark Side.
+
+LLM partnership initiated.
+
+## 🧩 THE DIY PARSER PHASE (RIP)
+
+The plan was simple:
+
+- **Verbs** → CRUD operations (add, delete, update, move)
+- **Nouns** → UI components (button, text, image)
+- **Prepositions** → Spatial relationships (inside, below, next to)
+- **Modifiers** → Props (big, blue, centered)
+
+Linguistics 101, right? Just map words to actions.
+
+Suffice to say, it was not Linguistics 101 😒
+
+The way the LLM handled pattern matching, you'd think it was built on that very concept.
+
+But then it hit me — why stop at parsing?
+
+What if the LLM didn't just understand the commands… what if it orchestrated everything?
+
+## 🧭 FIELD NOTE: The MCP Awakens
+
+For the past year, everyone's been talking about MCP servers.
+
+Every conference. Every LinkedIn post. Every "what's new in AI" panel.
+
+I nodded along politely, secretly wondering, "Is this another blockchain in the making?" 🤨
+
+Then I wandered into an MCP session at the Atlanta Developer Conference.
+
+Dimly lit room. Engineers leaning forward.
+
+The presenter described it simply: lightweight servers that let LLMs talk with structure, schema, and boundaries — clean delegation, clear contracts.
+
+Something clicked.
+
+I walked out of that room knowing exactly what I had to do.
+
+So I did what any reasonable developer would: went home, abandoned my laundry to its fate, and rewired SayBuild overnight.
+
+## 🧩 Curiosity killed the cat but satisfaction brought it back
+
+**The Setup:**
+
+**2 MCP Servers:**
+
+- 🧠 **State Server** — reads and writes to the component tree
+- 📊 **Data Server** — holds component-tree.json + Chokidar watcher
+
+**Other players:**
+
+- 1 **LLM**: the orchestrator — smart enough to delegate
+- 1 **Next.js App**: the display layer with live updates via SSE
+
+Converted the project to a pnpm workspace with proper package separation. Immediately pushed 123MB of node_modules to GitHub because /node_modules only ignores root — not workspace folders.
+
+**Public Service Announcement for monorepo newbies:** use `node_modules` (without '/') in order to ignore it everywhere. 🙇🏽♀️
+
+## 🧭 MCP Architecture
+
+Next up: wiring it all together — two MCP servers, one LLM orchestrator, and a stubborn developer who just wouldn't quit. Stay tuned for Part 3: The Servers Strike Back.

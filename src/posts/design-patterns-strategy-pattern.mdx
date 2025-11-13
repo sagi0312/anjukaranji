@@ -1,0 +1,108 @@
+---
+title: "Design Patterns by Purpose: The Strategy Pattern in Frontend Life (Part 3)"
+blurb: "Exploring the Strategy Pattern and how it helps organize interchangeable behaviors for cleaner UI."
+date: "2024-01-20"
+slug: "design-patterns-strategy-pattern"
+---
+
+You've tamed structure (Module) and domesticated creation (Factory). Next up: behavior.
+
+Consider a payment processor that needs different personalities (credit card, PayPal, crypto, bank transfer, gift card). Left alone, it turns into an if/else hydra. The Strategy Pattern trims that chaos: you define a small, stable interface for the operation (say process, validate, or charge) and pass in interchangeable implementations at runtime. Call sites stay consistent; only the strategy changes. Result: fewer branches, cleaner tests, and new variants without touching the core. Swap, don't sprawl.
+
+## Cat Behaviors: The Furry Problem
+
+Meet Cat, our base class.
+
+Now the variants: StreetCat, HouseCat, ManekiNeko, HelloKitty (famously… silent).
+
+Hard-coding `eat()`, `meow()`, and `move()` into Cat breaks half the family—some behave differently, some don't meow at all. Copy-pasting those methods into every subclass? Hairball city.
+
+Enter Strategy: pull -> eat, sound, and move into small, swappable objects with the same interface. Compose each cat with the behaviors it actually needs at runtime. New cat? Meet RoboCat—USB-C-powered, doesn't eat, outputs a synthetic meow, and yes, it flies. You just plug in eatBehavior: none, soundBehavior: synth, and moveBehavior: thrusters. No base-class surgery, no if/else hairballs—just composition that feels like a firmware upgrade.
+
+## A real-world pass: CollapsiblePanel with pluggable behaviors
+
+Time to leave the cat café and touch UI. The panel's structure stays boring on purpose; the behavior gets swapped in.
+
+You ship a solid CollapsiblePanel, and suddenly it's everywhere. Marketing wants color + sparkle on click. Settings wants non-clickable panels. The dashboard wants panels sorted by priority. Sound familiar? This is where the Strategy Pattern earns its keep: don't fork your component or stuff it with if/else. Make it behavior-agnostic and accept tiny "strategies" for clicks, sorting—whatever you need.
+
+Think of it this way: the panel is the car; strategies are the drivers. The car exposes the wheel and pedals; the driver decides how to drive. Your panel exposes markup and state; strategies decide what to do.
+
+You can create small strategy functions for different behaviors:
+
+```javascript
+// Strategy objects
+const clickStrategies = {
+  colorSparkle: {
+    onClick: (id) => addSparkleEffect(id),
+    getStyle: (id) => ({ backgroundColor: 'lightblue', transition: 'all 0.3s' })
+  },
+  disabled: {
+    onClick: () => {}, // No-op
+    getStyle: () => ({ opacity: 0.6, pointerEvents: 'none' })
+  }
+};
+
+const sortStrategies = {
+  priority: (panels) => [...panels].sort((a, b) => a.priority - b.priority),
+  alphabetical: (panels) => [...panels].sort((a, b) => a.title.localeCompare(b.title)),
+};
+
+// The panel stays behavior-agnostic
+const CollapsiblePanel = ({ id, title, children, clickStrategy = clickStrategies.disabled }) => {
+  return (
+    <div>
+      <div
+        onClick={() => clickStrategy.onClick(id)}
+        style={clickStrategy.getStyle(id)}
+        className="panel-header"
+      >
+        {title}
+      </div>
+      <div className="panel-content">{children}</div>
+    </div>
+  );
+};
+
+// Usage
+<CollapsiblePanel
+  id="marketing"
+  title="Campaign Results"
+  clickStrategy={clickStrategies.colorSparkle}
+/>
+<CollapsiblePanel
+  id="dashboard"
+  title="Web Traffic"
+  clickStrategy={clickStrategies.disabled}
+/>
+```
+
+## Before You If/Else
+
+When you feel an `if (type === 'special')` coming on, pause. Ask: "Could this be a strategy instead?" If yes, extract a tiny function, pass it in, and keep your component calm. Future-you (and your team) will thank you when requirements change again next sprint.
+
+## Gotchas
+
+**No default strategy?** Give your component a safe fallback (e.g., disabled behavior) so it never crashes when someone forgets to pass one in.
+
+**Testing panic?** Don't test every combo :)
+
+**Over-strategizing?** Not every if deserves a strategy. A quick inline check is fine when there are only one or two cases and they won't grow - extract them when you actually need the third variation.
+
+## When NOT to use Strategy:
+
+- Simple toggles (`theme.dark ? 'dark' : 'light'`)
+- One-off customizations that won't grow
+- Performance-critical paths (strategy dispatch has overhead)
+
+## When Strategy shines:
+
+- Multiple implementations of the same interface
+- Runtime behavior switching
+- Plugin architectures
+- Algorithm families that need to be swappable
+
+## Final Thoughts
+
+Strategy is the gateway drug to plugin architectures. Mastering this helps you build micro-frontends, extensible design systems, and even frameworks that don't lock you into their opinions. Your components become platforms, not just UI blocks.
+
+Posting in case it helps someone.

@@ -1,0 +1,254 @@
+---
+title: "Design Patterns by Purpose: The Factory Pattern in Frontend Life (Part 2)"
+blurb: "Breaking down the Factory Pattern with frontend use cases — simplifying object creation."
+date: "2024-01-10"
+slug: "design-patterns-factory-pattern"
+---
+
+## 🏭 The Factory Pattern – Creating Without Clutter
+
+Before I open a PR, I scan my code like a typical disappointed Asian parent: "Why are there three identical button setups? Who copy-pasted this API client everywhere? And what's with all these validators doing the exact same dance?"
+
+Each one technically works, but asking every file to memorize a 15-step recipe is like teaching the whole family to make rasam from scratch every time — someone's bound to mess up the masalas.
+
+That's where the Factory Pattern comes in: it centralizes creation.
+
+Instead of copy-pasting setup code, you just ask by intent — "primary button," "authenticated client," "email validator." The factory knows the house recipe and returns a ready-to-use object.
+
+Best part: when you decide to switch from chat masala to turmeric (or swap an API provider), you update the factory once. Every dish — and every file — automatically gets the upgrade, no family meeting required.
+
+## Where the Factory Pattern Quietly Does Its Magic
+
+Think about visual page builders.
+
+```javascript
+// Component Factory for page builder
+const ComponentFactory = {
+  create: (type, props) => {
+    switch (type) {
+      case "hero":
+        return new HeroComponent({
+          ...props,
+          className: "hero-section",
+          defaultHeight: "500px",
+        });
+      case "testimonial":
+        return new TestimonialComponent({
+          ...props,
+          showAvatar: true,
+          maxLength: 200,
+        });
+      default:
+        throw new Error(`Unknown component type: ${type}`);
+    }
+  },
+};
+
+// Usage - clean and simple
+const hero = ComponentFactory.create("hero", { title: "Welcome" });
+```
+
+It's flexible, too. These factories are often built using polymorphism, so if your current setup ever starts to feel clunky — or you need something more scalable — you can swap in a different factory without touching the rest of the system.
+
+That kind of design stays clean for years.
+
+## Beyond the Basics: Simple, Method, and Abstract
+
+Do you see where I'm going with this?
+
+Imagine you have an Outfit Generator for different kinds of days:
+
+### 🧰 Simple Factory – kinda simplistic
+
+A Simple Factory is a convenient helper that builds an object based on a parameter — like our Outfit Generator picking "pajamas" or "blouse & skirt."
+
+⚠️ **Note:** Purists don't list this as an official "Gang of Four" pattern because it doesn't involve inheritance or polymorphism — it's basically a neat wrapper around new. Still, for small apps it's practical and keeps creation logic in one spot.
+
+```javascript
+const OutfitFactory = {
+  create(type) {
+    switch (type) {
+      case "wfh":
+        return "Mismatched pajama set";
+      case "office":
+        return "Clean blouse & skirt";
+      default:
+        throw new Error("Unknown vibe");
+    }
+  },
+};
+```
+
+### 🏭 Factory Method – stylists with their own rules
+
+The Factory Method pattern delegates creation to specialized "stylists."
+
+Each subclass knows how to assemble its look.
+
+```javascript
+class Stylist {
+  createOutfit() {
+    throw new Error("Override me");
+  }
+}
+
+class WFHStylist extends Stylist {
+  createOutfit() {
+    return "Pajamas + messy bun + cookie crumbs";
+  }
+}
+
+class OfficeStylist extends Stylist {
+  createOutfit() {
+    return "Blouse, skirt, neat hair, hint of perfume";
+  }
+}
+```
+
+Use this when different environments need their own construction steps but you want one interface: `stylist.createOutfit()`
+
+### 🏗️ Abstract Factory – complete lifestyle bundles
+
+The Abstract Factory builds families of related objects, keeping them consistent.
+
+Think of it as a recipe for the whole vibe:
+
+```javascript
+class WFHBundleFactory {
+  createClothes() {
+    return "Comfy PJs";
+  }
+  createHair() {
+    return "Messy bun";
+  }
+  createExtras() {
+    return "Crumbs on top";
+  }
+}
+
+class OfficeBundleFactory {
+  createClothes() {
+    return "Pressed blouse & skirt";
+  }
+  createHair() {
+    return "Freshly washed";
+  }
+  createExtras() {
+    return "Light perfume";
+  }
+}
+```
+
+Perfect when you need coordinated sets — outfit, grooming, accessories — all matching the environment.
+
+## 🧪 Testing & Single Responsibility (Tiny but Mighty)
+
+Factories also shine when it comes to unit testing and Single Responsibility.
+
+By moving setup code into one spot, your classes stay focused on behavior — and tests can inject mocks without wading through construction logic.
+
+(In outfit terms: you test how you wear the clothes, not how the wardrobe picked them.)
+
+## A Real-World Moment
+
+Here's one example from a past project:
+
+I didn't write the drag-and-drop code myself — but I remember noticing it.
+
+It worked fine in Chrome, but in Firefox, things got a little weird. At the time, most users were on Chrome, so the issues went unnoticed for a while. But when the team finally needed to fix it, they had a choice: scatter browser-specific `if-else` checks throughout the code… or find a cleaner solution.
+
+```javascript
+// Before Factory - browser checks scattered everywhere
+const handleDragStart = (event) => {
+  if (navigator.userAgent.includes("Firefox")) {
+    event.dataTransfer.effectAllowed = "move";
+    event.dataTransfer.setData("text/plain", "");
+  } else if (navigator.userAgent.includes("Chrome")) {
+    event.dataTransfer.effectAllowed = "copyMove";
+  }
+  // This logic gets duplicated in every drag handler...
+};
+
+// After Factory - clean separation
+const DragHandlerFactory = {
+  create: () => {
+    if (navigator.userAgent.includes("Firefox")) {
+      return new FirefoxDragHandler();
+    }
+    if (navigator.userAgent.includes("Chrome")) {
+      return new ChromeDragHandler();
+    }
+    return new DefaultDragHandler();
+  },
+};
+
+class FirefoxDragHandler {
+  handleDragStart(event) {
+    event.dataTransfer.effectAllowed = "move";
+    event.dataTransfer.setData("text/plain", "");
+  }
+}
+
+class ChromeDragHandler {
+  handleDragStart(event) {
+    event.dataTransfer.effectAllowed = "copyMove";
+  }
+}
+
+// Usage - no browser detection needed
+const dragHandler = DragHandlerFactory.create();
+dragHandler.handleDragStart(event);
+```
+
+The main drag-and-drop code stayed clean. Easy to test. Easy to grow. When Safari needed support later, they just added another handler class — no rewrites, no mess scattered throughout the codebase.
+
+## When to Use (and Not Use) Factory Pattern
+
+**Factory shines when you have:**
+
+- Multiple variations of similar objects that need different configurations
+- Complex setup logic that you don't want scattered everywhere
+- Objects that need environment-specific behavior (dev vs prod, mobile vs desktop)
+
+```javascript
+// Worth using Factory - multiple complex configurations
+const APIClientFactory = {
+  create: (environment) => {
+    switch (environment) {
+      case "development":
+        return new APIClient({
+          baseURL: "http://localhost:3000",
+          timeout: 30000,
+          debug: true,
+          retries: 1,
+        });
+      case "production":
+        return new APIClient({
+          baseURL: "https://api.company.com",
+          timeout: 5000,
+          headers: { "X-Environment": "prod" },
+          retries: 3,
+        });
+    }
+  },
+};
+```
+
+**Skip Factory when:**
+
+- You only have one or two simple variations
+- The setup is straightforward and unlikely to change
+- You're just avoiding a few lines of code
+
+```javascript
+// Overkill - simple toggle doesn't need Factory
+const theme = isDark ? "dark" : "light"; // This is fine
+```
+
+**Rule of three:** once you've set up the same complex object three times, it's factory time.
+
+**Scaling bonus:** factories grow sideways, not everywhere.
+
+Need a new API environment? Add a case to the factory — the rest of the codebase stays blissfully unaware.
+
+Compare that to scattered if-else blocks you'd have to hunt down in dozens of files.

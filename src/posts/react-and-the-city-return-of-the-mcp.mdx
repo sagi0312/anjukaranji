@@ -1,0 +1,204 @@
+---
+title: "React and the City ⚔️ Part 3: Return of the MCP"
+blurb: "When an AI helps you integrate another AI — wiring MCP servers, Claude's API, and learning the 5-line rule."
+date: "2024-05-01"
+slug: "react-and-the-city-return-of-the-mcp"
+---
+
+## ⚡️ Part 3: When Your AI Helps You Integrate... Another AI
+
+**FIELD NOTE**
+
+Two MCP servers purring on localhost like they own the place.
+
+Claude Desktop conducting the symphony.
+
+Me at 2 AM, wearing yesterday's hoodie, convinced I've achieved enlightenment.
+
+🧘🏽♀️ **Narrator:** She had not.
+
+So there I was, watching two MCP servers hum contentedly, when I realized: My Next.js app still wasn't part of the conversation.
+
+So I did what any reasonable developer does at 2 AM — opened Claude and typed the most dignified technical query of my career: "Help. Plz. Make thing talk to other thing."
+
+## 🤝 The Pair-Programming Dance
+
+What followed was the most delightful pair programming session where an AI helped me integrate... another AI. Meta? Absolutely. Effective? You have no idea. Slightly concerning for the future of humanity? We'll cross that bridge when the robots tell us to.
+
+Plot twist: the fancy `server.tool()` wrapper everyone talks about? Didn't work.
+
+So I rolled up my sleeves and went full grease-monkey with CallToolRequestSchema, ListToolsRequestSchema — the raw MCP APIs.
+
+Suddenly I wasn't writing React; I was rebuilding the Millennium Falcon's hyperdrive while Chewie (Claude) gave me encouraging but technically vague advice.
+
+## 🧰 First Challenge: Teaching Next.js to Talk MCP
+
+I needed to spawn my MCP server as a child process.
+
+Added a bin entry in package.json so `npx component-tree-services` could invoke it — basically letting npm drop a symlink in `node_modules/.bin/`.
+
+```json
+"bin": {
+  "component-tree-services": "./build/src/index.js"
+}
+```
+
+Now Next.js could whisper sweet JSON into my MCP server's socket.
+
+## 💃 Step by Step: The 5-Line Rule
+
+By this point I was deep in pair-programming with Claude.
+
+**Claude:** "Okay, first let's import the dependencies—"
+
+**Me:** "STOP. Just the imports."
+
+**Claude:** "Here are the four import lines—"
+
+**Me:** "Perfect. Next five."
+
+And so it went. Slow, methodical, and shockingly peaceful — like meditation, but with TypeScript errors.
+
+When something broke (and oh, things broke), I knew exactly which five lines to blame. No more spelunking through 200 lines of stack traces.
+
+**Me:** "Wait — I need an API key?"
+
+**Claude:** "Yes."
+
+**Me:** "I have to PAY for this?"
+
+**Claude:** "Yes."
+
+**Me:** "With MONEY?"
+
+I stared at my $7 oat milk latte. Then at my screen. Then back at the latte.
+
+We proceeded.
+
+Turns out, yes — minimum $5 deposit, around $0.03 per voice command. The 5-line rule wasn't just debugging discipline — it was a reminder that when building with AI, slowness is your ally. Also, apparently so is having a credit card.
+
+## 🔁 The Loop (Or: Why Claude Needs Multiple Turns)
+
+When I said, "delete the red Welcome button," Claude couldn't just … do it in one go.
+
+From Claude's point of view:
+
+1️⃣ Get the tree (get_tree)
+
+2️⃣ Find the red Welcome button
+
+3️⃣ Call delete_component with the right keys
+
+Problem: Claude can only use one tool per turn. Like a video game character who can only do one action before waiting for your input.
+
+**Claude:** "I have retrieved the tree."
+
+**Me:** "Great! Now delete the button."
+
+**Claude:** "I cannot. It is not my turn."
+
+**Me:** "...this is like playing chess with a very polite robot."
+
+**Claude:** "Check."
+
+Solution: build a loop so it can use a tool → see the result → think → use another.
+
+(One small while-loop for code, one giant leap for machine autonomy.)
+
+## 🔥 The Chokidar + SSE Symphony
+
+At this point:
+
+✅ Voice commands working
+
+✅ Property updates working
+
+❌ UI still clueless
+
+Enter stage left: Chokidar, the watcher, and Server-Sent Events, the messenger.
+
+Chokidar just stares at component-tree.json like a very dedicated stalker. The moment it twitches — it screams in binary.
+
+```javascript
+watcher.on("change", () => callback("update"));
+```
+
+SSE keeps an open line to the browser, ready to whisper: "Hey, something happened."
+
+React refetches, the UI rerenders, and peace returns to the galaxy.
+
+## 🎯 The Victory Lap
+
+**THE APP WORKS.**
+
+"Add a blue Welcome button." → It appeared.
+
+"Make it pink." → It blushed.
+
+"Delete the pink button." → Gone.
+
+I definitely danced. The chair did a little spin.
+
+My cat watched from the couch, radiating judgment.
+
+She's seen me debug before. This changes nothing between us.
+
+All the moving pieces — voice input, MCP servers, Claude's orchestration, real-time updates — finally talking like old friends at a coffee shop.
+
+Me? Trying not to cry into my keyboard. (The keys stick when they get wet. Learned that the hard way.)
+
+## 🧩 The Stack (a.k.a. How the Magic Actually Works)
+
+```
+Voice Input (Web Speech API)
+        ↓
+Next.js API (MCP Client)
+        ↓
+Anthropic Claude API
+        ↓
+component-tree-services (MCP Server)
+        ↓
+component-tree.json
+        ↓
+Chokidar (File Watcher)
+        ↓
+SSE (Real-time Updates)
+        ↓
+React (UI Re-render)
+```
+
+A perfect loop — thoughts to words, words to code, code to UI — stitched together by caffeine and curiosity.
+
+## 💭 What Just Happened Here?
+
+React Compiler saved my renders.
+
+Claude API saved my sanity.
+
+MCP saved the project.
+
+And the 5-line rule? That saved me.
+
+## 🚀 Next Up: Deploy Like It's 2025
+
+Now that everything works — servers hum, Claude orchestrates, components obey — there's only one thing left: set it free.
+
+In Part 4, I take this caffeine-fueled contraption to Vercel and see if the cloud is ready for an app that talks back.
+
+Stay tuned.
+
+It's live or nothing. ⚡️
+
+(Or as my laptop calls it: "may the fans be ever in your favor.")
+
+**P.S.** Repo is live: [SayBuild](https://github.com/sagi0312/SayBuild). You'll need an Anthropic API key, a tolerance for experimental tech, and a cat for moral support. Cat optional but recommended.
+
+**UPDATE (Oct 30, 2025):**
+
+It's live at [saybuild.vercel.app](https://saybuild.vercel.app).
+
+Getting it there involved the usual Supabase/Vercel dance—Auth redirects pointing at localhost, environment variables playing hide-and-seek, and ESLint blocking deployment over my types. Not glamorous, but it finally is deployed!
+
+Also switched from Claude Sonnet to Haiku (30x cheaper, still excellent at function calling). Turns out you don't need the Ferrari when the Honda does the job just fine.
+
+Try it out. Break it. Let me know.

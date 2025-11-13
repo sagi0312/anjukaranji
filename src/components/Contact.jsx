@@ -41,39 +41,39 @@ export default function Contact() {
             style={{ filter: "opacity(0.65)" }}
             src="https://www.google.com/maps/embed/v1/place?q=Woodstock+Georgia&key=AIzaSyBFw0Qbyq9zTFTd-tUY6dZWTgaQzuU17R8"
           />
-          <div className="bg-gray-900/95 relative rounded-xl shadow-md p-6">
-            <ul className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-4 text-white/80">
+          <div className="bg-gray-900/95 relative rounded-xl shadow-md p-6 w-full">
+            <ul className="grid grid-cols-1 lg:grid-cols-2 gap-4 text-white/80">
               <li className="flex items-center gap-2 px-1 py-1 text-white/90">
                 <MapPinIcon className="h-5 w-5 shrink-0 text-indigo-400" />
-                <span>Woodstock, Georgia</span>
+                <span className="text-sm">Woodstock, Georgia</span>
               </li>
-              <li className="flex items-center space-x-2">
-                <EnvelopeIcon className="h-5 w-5 text-indigo-400" />
+              <li className="flex items-center gap-2">
+                <EnvelopeIcon className="h-5 w-5 shrink-0 text-indigo-400" />
                 <a
                   href="mailto:anjukaranji@gmail.com"
-                  className="text-indigo-200 hover:text-indigo-400"
+                  className="text-indigo-200 hover:text-indigo-400 text-sm break-all"
                 >
                   anjukaranji@gmail.com
                 </a>
               </li>
-              <li className="flex items-center space-x-2">
-                <LinkIcon className="h-5 w-5 text-indigo-400" />
+              <li className="flex items-center gap-2">
+                <LinkIcon className="h-5 w-5 shrink-0 text-indigo-400" />
                 <a
                   href="https://www.linkedin.com/in/anju-karanji"
                   target="_blank"
                   rel="noreferrer"
-                  className="text-indigo-200 hover:text-indigo-400"
+                  className="text-indigo-200 hover:text-indigo-400 text-sm break-all"
                 >
                   linkedin.com/in/anju-karanji
                 </a>
               </li>
-              <li className="flex items-center space-x-2">
-                <LinkIcon className="h-5 w-5 text-indigo-400" />
+              <li className="flex items-center gap-2">
+                <LinkIcon className="h-5 w-5 shrink-0 text-indigo-400" />
                 <a
                   href="https://github.com/sagi0312"
                   target="_blank"
                   rel="noreferrer"
-                  className="text-indigo-200 hover:text-indigo-400"
+                  className="text-indigo-200 hover:text-indigo-400 text-sm break-all"
                 >
                   github.com/sagi0312
                 </a>

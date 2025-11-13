@@ -1,72 +1,10 @@
+import { Link } from "react-router-dom";
 import {
   BookOpenIcon,
   ArrowTopRightOnSquareIcon,
 } from "@heroicons/react/24/solid";
 
-const posts = [
-  {
-    title: "Design Patterns by Purpose: A Map for Frontend Developers",
-    blurb:
-      "An overview of design patterns in frontend work, plus a roadmap for exploring them with focus.",
-    href: "https://dev.to/sagi0312/part-1-design-patterns-by-purpose-a-developers-map-156c",
-  },
-  {
-    title: "Design Patterns by Purpose: The Factory Pattern in Frontend Life",
-    blurb:
-      "Breaking down the Factory Pattern with frontend use cases — simplifying object creation.",
-    href: "https://dev.to/sagi0312/design-patterns-by-purpose-reuse-part-2-3500",
-  },
-  {
-    title: "Design Patterns by Purpose: The Strategy Pattern in Frontend Life",
-    blurb:
-      "Exploring the Strategy Pattern and how it helps organize interchangeable behaviors for cleaner UI.",
-    href: "https://dev.to/sagi0312/design-patterns-by-purpose-the-strategy-pattern-in-frontend-life-part-3-55i4",
-  },
-  {
-    title: "Design Patterns by Purpose: The Command Pattern in Frontend Life",
-    blurb:
-      "Learn the Command Pattern through universal remotes, playful cats, and a reusable Undo button.",
-    href: "https://dev.to/sagi0312/design-patterns-by-purpose-the-command-pattern-in-frontend-life-part-4-2f35",
-  },
-  {
-    title: "Breaking the Rules at Privet Drive: A React Origin Story",
-    blurb:
-      "A whimsical origin story of React — from JSX skepticism, to Fiber, to Hooks, to the Compiler era.",
-    href: "https://dev.to/sagi0312/react-and-the-philosophers-component-4dnk",
-  },
-  {
-    title: "React and the City 💘: The Compiler Saves the Day",
-    blurb:
-      "From job rejection to innovation and discovering how React Compiler solved my performance issues.",
-    href: "https://dev.to/sagi0312/building-a-voice-driven-page-builder-part-1-how-react-compiler-solved-my-performance-crisis-3cpg",
-  },
-  {
-    title: "☕️ Unsolicited Wisdom from My Ceramic Life Coach",
-    blurb:
-      "A caffeinated conversation with my sarcastic mug — on burnout, refactors, and rediscovering the joy of coding.",
-    href: "https://dev.to/sagi0312/unsolicited-wisdom-from-my-ceramic-life-coach-1m04",
-  },
-  {
-    title: "React and the City ⚡️: Nevertheless, She Persisted",
-    blurb:
-      "Continuing the SayBuild journey — from ambitious regex experiments to the adoption of an MCP server architecture.",
-    href: "https://dev.to/sagi0312/react-and-the-city-nevertheless-she-persisted-3n9a",
-  },
-  {
-    title: "React and the City ⚔️ Part 3: Return of the MCP",
-    blurb:
-      "When an AI helps you integrate another AI — wiring MCP servers, Claude's API, and learning the 5-line rule.",
-    href: "https://dev.to/sagi0312/react-and-the-city-part-3-return-of-the-mcp-1ede",
-  },
-  {
-    title: "When Life Gives You",
-    blurb:
-      "A Little Sass Makes Life Sexy - A playful poem about navigating life's chaos. From juggling lemons to treasuring what remains.",
-    href: "https://medium.com/@sagi0312/when-life-gives-you-273ba8db6c98",
-  },
-];
-
-export default function Writing() {
+export default function Writings({ posts }) {
   return (
     <section id="writings">
       <div className="container p-12 mx-auto">
@@ -83,23 +21,23 @@ export default function Writing() {
 
         <div className="flex flex-wrap justify-center">
           {posts.map((post) => (
-            <div key={post.title} className="p-2 w-full sm:w-1/3 lg:w-1/4">
-              <a
-                href={post.href}
-                target="_blank"
-                rel="noreferrer"
+            <div key={post.slug} className="p-2 w-full sm:w-1/3 lg:w-1/4">
+              <Link
+                to={`/writings/${post.slug}`}
                 className="block rounded p-3 h-full transform transition-transform duration-300 hover:scale-105 hover:border-green-500 border border-gray-500 focus:outline-none focus:ring-2 focus:ring-green-500"
-                aria-label={`Read ${post.title} on dev.to`}
+                aria-label={`Read ${post.frontmatter.title}`}
               >
                 <h3 className="text-white font-semibold text-sm mb-2">
-                  {post.title}
+                  {post.frontmatter.title}
                 </h3>
-                <p className="text-white/80 text-xs mb-3">{post.blurb}</p>
+                <p className="text-white/80 text-xs mb-3">
+                  {post.frontmatter.blurb}
+                </p>
                 <div className="inline-flex items-center text-green-400 hover:text-green-300 text-xs font-medium">
                   Read
                   <ArrowTopRightOnSquareIcon className="w-3 h-3 ml-1" />
                 </div>
-              </a>
+              </Link>
             </div>
           ))}
         </div>

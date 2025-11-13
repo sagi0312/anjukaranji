@@ -1,0 +1,117 @@
+---
+title: "Design Patterns by Purpose: A Map for Frontend Developers (Part 1)"
+blurb: "An overview of design patterns in frontend work, plus a roadmap for exploring them with focus."
+date: "2024-01-01"
+slug: "design-patterns-by-purpose-a-map"
+---
+
+## Picture this: the Module Pattern in Action
+
+Picture this: it's 2 AM, you're debugging, and you stumble across a variable called `data`.
+
+Could be user info. Could be API stuff. Could even be your coworker's financial data (salary, perhaps — wink wink). Who knows?
+
+That's JavaScript without modules — everything dumped into the global scope like that chair in your room, where dirty laundry, clean laundry, and "I'll deal with this later" laundry all mingle in one glorious, vaguely human-shaped pile.
+
+The Module Pattern is like hiring a professional organizer for your code: everything gets its own spot, and suddenly you can find `getUserInfo()` without digging through seventeen other "important" functions.
+
+And here's the truth: the Module Pattern started as pure survival instinct — the same way you eventually start putting clothes in the hamper (or back in the closet) because waking up to a creepy, laundry-shaped silhouette in the middle of the night gets old fast.
+
+## How this series works
+
+I think and code iteratively. First, I make it work with clarity and modularity.
+
+From the second pass onward, I refine — chip away, reorganize, decouple. Make it lighter, more composable.
+
+Each post focuses on one design pattern as a practical tool for reducing friction and making code feel just right.
+
+We'll start with the patterns that decouple, clarify, and lighten the load.
+
+## Table of Contents
+
+- The Module Pattern – Building With Breathing Room
+- Folders reflect meaning, not just structure
+- Structure supports both the mind and the machine
+- Informal MVC in the frontend
+- Modules in Practice: Structure That Scales
+
+## The Module Pattern – Building With Breathing Room
+
+I didn't set out to "use the Module Pattern."
+
+It just started as a habit — a natural response to chaos.
+
+Over time, I noticed that my code became easier to work with when I gave different concerns their own space.
+
+That's really all the Module Pattern is: grouping related logic together, keeping things that don't belong apart, and giving each piece a name that actually means something.
+
+Here's what that looks like in my frontend projects — especially React apps:
+
+### Folders reflect meaning, not just structure
+
+I tend to keep a clear, opinionated layout:
+
+- **`components/`** — Every piece gets its own little spotlight: a `.tsx` or `.jsx` file and matching CSS — a happy nuclear family.
+- **`hooks/`** — That crafty lab partner from the college Fitting Shop who helped you smuggle your project out so the guy at the corner metal shop could file it perfectly.
+- **`utils/`** — The junk drawer of your codebase. Contains `formatDate()`, `isEven()`, and that one function you copied from Stack Overflow at 2 a.m.
+- **`types/`** or **`models/`** — The Marauder's Map of your codebase: "I solemnly swear my shapes and interfaces are up to no good." Looks official, but sometimes the magic fades and you're left with `any`.
+- **`services/`** — Santa's overworked elves: cranking out API toys and business-logic gadgets while components sip cocoa and take the credit.
+
+### Structure supports both the mind and the machine
+
+- A good module layout reduces mental friction — you don't have to hunt for things.
+- If someone else joins the project — or future-you opens it six months later — the structure should explain itself.
+- Bonus: modular code also plays well with the bundler. Tree-shaking, code-splitting, and dead-code elimination all benefit when things are cleanly separated.
+
+### Informal MVC in the frontend
+
+Even in React, separating models (types/interfaces), views (components), and controllers (hooks/services) keeps concerns organized.
+
+It's not rigid architecture — just a mental framework that helps code breathe.
+
+## Modules in Practice: Structure That Scales
+
+The Module Pattern isn't just about folder organization — it's about creating self-contained units with clear boundaries:
+
+```javascript
+// utils/apiClient.js - Self-contained module
+const ApiClient = (() => {
+  let baseURL = process.env.API_BASE_URL;
+  let defaultHeaders = {};
+
+  return {
+    setBaseURL: (url) => (baseURL = url),
+    setHeaders: (headers) =>
+      (defaultHeaders = { ...defaultHeaders, ...headers }),
+    get: (endpoint) =>
+      fetch(`${baseURL}${endpoint}`, { headers: defaultHeaders }),
+    post: (endpoint, data) =>
+      fetch(`${baseURL}${endpoint}`, {
+        method: "POST",
+        headers: { ...defaultHeaders, "Content-Type": "application/json" },
+        body: JSON.stringify(data),
+      }),
+  };
+})();
+```
+
+Notice how the ApiClient module encapsulates configuration (baseURL, headers) while exposing only the methods needed for making requests. The private variables can't be accessed directly - you must use the provided interface. When API requirements change, you modify the module without affecting code that uses it.
+
+### This modular thinking translates to project organization that makes sense:
+
+Each layer has a focused role:
+
+- `replicache/` handles sync logic at the lowest level
+- `data/` separates models from live instances
+- `hooks/` compose reusable logic
+- `components/` remain clean, declarative, and logic-free
+
+The folder structure isn't the Module Pattern itself - it's what happens when you apply modular thinking consistently. Each directory contains related functionality, clear interfaces between layers, and minimal coupling.
+
+This kind of organization helps your app scale and keeps your mind sane as complexity grows.
+
+**When to reach for it:** once you've set up the same complex thing three times, it's factory time.
+
+## Final Thoughts
+
+You don't have to architect everything perfectly on day one. But if you start with simple, self-contained modules and grow thoughtfully from there, your future self (and teammates) will thank you.

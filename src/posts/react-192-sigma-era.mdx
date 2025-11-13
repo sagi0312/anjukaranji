@@ -1,0 +1,147 @@
+---
+title: "React 19.2: React in its sigma era"
+blurb: "From the new compiler to smarter rendering and saner effects, React 19.2 feels like the glow-up we've been waiting for."
+date: "2024-11-10"
+slug: "react-192-sigma-era"
+---
+
+![Sigma](/blog/67.jpg)
+
+The lights dim — or maybe that's just dark mode — and somewhere buried inside a million open tabs, I, React 19.2, take a deep breath.
+
+I'm the millennial dev of frameworks: experienced, over-caffeinated, quietly wondering if work-life balance is real, and still feeling guilty about using PTO. The stickers still sell, but the critics? They've been whispering for years about "side effects" and "memoization fatigue."
+
+But I'm back — bolder, wiser, and dare I say, with a little rizz.
+
+I've stopped taking photos of my meals, swapped Red Bull for matcha, and finally learned to set boundaries with useEffect.
+
+My new name? React 19.2. And I've finally embraced my sigma era.
+
+Sure, my new React Compiler (with its Babel plugin) might tack a few seconds onto the Vite build, but that's a small price to pay for the hours you used to spend manually memoizing everything. Isn't it? My compiler now handles optimization automatically — and honestly? I'm stoked about this upgrade.
+
+**What's new in my glow-up:**
+
+## 1) `<Activity />` = "It's giving background character energy." 🎭
+
+Okay, real talk — I used to have a toxic push-pull relationship with my components.
+
+Mount. Unmount. Mount again.
+
+It was giving on-again-off-again couple energy.
+
+One second your `<Sidebar />` was here — the next? Gone. Deleted. State obliterated. Then we'd get back together and I'd have to rebuild everything from scratch like nothing ever happened. Exhausting. For both of us.
+
+But I've grown. With `<Activity />`, I've learned that not every break needs to be a breakup.
+
+```jsx
+<Activity mode={isShowingSidebar ? "visible" : "hidden"}>
+  <Sidebar />
+</Activity>
+```
+
+React renders `<Sidebar />` in the background at low priority — like NPCs waiting for you to walk by again. State intact, DOM preserved, just off-screen. Not unmounted, just hidden.
+
+It's giving "we're on a break but you can still have my Netflix login."
+
+So very emotionally available 😉
+
+## 2) useEffectEvent = "the Gen-Z stare" (boundaries, no oversharing) 🧘♀️
+
+My useEffects -> Every little prop change? Every callback tweak? Boom, dependency drama. I'd drag everyone into my business like, "If I'm re-rendering, we're all re-rendering."
+
+But then I met useEffectEvent.
+
+Cool, detached, emotionally stable — basically the Gen-Z friend who just blinks at your chaos and says, "that's crazy, lol."
+
+```javascript
+const onConnected = useEffectEvent(() => {
+  sendMessage("hey");
+});
+```
+
+My new friend - useEffectEvent taught me that not every update is about me.
+
+Sometimes, the healthiest thing you can do... is just take it easy... 🧘♀️
+
+## 3) cacheSignal = "the friend who cancels plans before you can." 🫠
+
+Okay, let's be honest — `cacheSignal()` is... fine.
+
+Basically, it gives you an AbortSignal tied to your cached Server Component fetches. So if React decides mid-render that it doesn't need that cached data anymore, the signal aborts and your fetch bails early.
+
+Real talk: I added it to the list because it's new, not because you'll reach for it. This is the API equivalent of meal-prepping on Sunday and then ordering takeout anyway by Wednesday.
+
+Is it useful? Sure, in some edge case on a high-traffic app with complex streaming SSR.
+
+Will you use it? Probably not. And that's okay. Not all my kids turned out equally awesome. 😉
+
+## 4) Performance Tracks = "Spotify Wrapped, but for your renders" 📊
+
+Look, debugging React performance used to be like trying to figure out why your situational-ship ghosted you. Was it me? Did I re-render too much? Am I being needy?
+
+You'd stare at flame graphs like they were Instagram stories, wondering if 47ms was "a lot" or if you were just being dramatic.
+
+But now? I'm serving receipts.
+
+Open Chrome DevTools → Performance tab, and I'll literally show you.
+
+**⚛️ Scheduler Tracks:**
+
+- **Blocking track:** "Yeah, I froze your UI for 500ms. You asked me to!" (It's not me. It's definitely YOU!)
+- **Transition track:** "This work? Low priority. Multitasking like Snoop Dogg with his side hustles."
+- **Suspense track:** "Still loading that API. I'm being patient, okay!"
+- **Idle track:** "Literally doing busywork. It's giving unemployment"
+
+**⚛️ Components Track:**
+
+The component tree where render time is on full display. Every component gets a colored bar.
+
+Darker = slower = that's your problem child 🤷🏻♀️
+
+I'm no longer bottling things up. I'm communicating. I'm vulnerable. I'm showing you the work.
+
+And honestly? It's exhausting being this self-aware. 💅
+
+## 5) Partial Pre-rendering = "I do meal prep now!" 🍱
+
+Partial Pre-rendering sounds delicious, but the recipe isn't exactly HelloFresh yet. The core API exists in React 19.2, but real-world setup still depends on your framework and server, so the "how" feels a little fuzzy to me.
+
+**PPR in 30 seconds (plain React):**
+
+- **Build (or precompute) time:** call `prerender(<App/>, { signal })` -> you get a prelude (static shell) and a postponed state. Save postponed somewhere (KV/blob/db) and ship prelude to your CDN.
+- **Request time:** load the saved postponed, then resume the render and stream the dynamic parts into the response.
+
+The catch? You're wiring up your own SSR server, managing state storage, configuring everything, and handling hydration. It is a little bit like plumbing I guess.
+
+With Next.js 15, you can just wrap the dynamic bits in `<Suspense>`, flip `experimental.ppr = true` in your config, and call it a day. Next does the rest —> less cooking, more eating.
+
+Again, not exactly the brightest of the bunch — unless you're using a framework to babysit it.
+
+## 6) Batching Suspense Boundaries for SSR = "group therapy for my loading states" 🤝
+
+I used to have no chill during SSR. I now batch my Suspense boundaries during SSR, meaning I reveal multiple async chunks together instead of one at a time.
+
+```jsx
+<Suspense fallback={<LoadingProfile />}>
+  <Profile />
+</Suspense>
+<Suspense fallback={<LoadingPosts />}>
+  <Posts />
+</Suspense>
+```
+
+**Before:** Profile flashes in, Posts follows awkwardly later.
+
+**Now:** I wait till both are ready, then enter the stage gracefully, in sync.
+
+I've grown past my biases. I'm no longer a component-ist. okay? All are equal under the law (which, obviously, is just me 😁)
+
+## 🏅 Honorable Mentions:
+
+**eslint-plugin-react-hooks v6:** This one understands `useEffectEvent`, supports flat config by default, and keeps your dependency arrays drama-free.
+
+**useId prefix update:** Changed from `:r:` to `_r_` to support View Transitions API. If you're doing SSR and using useId() for accessibility (instead of nanoid like a normal person), this matters. Otherwise, carry on. 😁
+
+React 19.2: optimized, hydrated, emotionally regulated. Sigma era achieved. 💅
+
+Now go build something. I'll be here, compiling in the background, quietly judging your useEffect dependencies 😉

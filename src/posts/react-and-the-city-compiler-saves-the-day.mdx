@@ -1,0 +1,127 @@
+---
+title: "React and the City 💘: The Compiler Saves the Day"
+blurb: "From job rejection to innovation and discovering how React Compiler solved my performance issues."
+date: "2024-04-01"
+slug: "react-and-the-city-compiler-saves-the-day"
+---
+
+Welcome to the pilot episode of - React and the City
+
+And yes, it's another AI chatbot tutorial (cue the collective groans reverberating across the internet and echoing into the galaxy far, far away🌌).
+
+But this one's special. Why, you ask? Because you never forget your first. 😉
+
+## From Rejection to Experiment
+
+Picture this: after months of interviews, the rejection landed like a guy who talks marriage, then ghosts the second you ask to see his house.
+
+Ouch.
+
+Here's the upside, though - the take-home assignment planted an idea. The task was to build a "mini" version of their visual page builder: the usual drag-and-drop editor hooked up to an iframe preview. Standard fare.
+
+Except while writing the jest tests, I couldn't stop thinking about Cypress. You know how Cypress runs tests in a little Broadway show right in front of you? And then it hit me: what if building the page wasn't about dragging or typing… but talking?
+
+Cue lightbulb moment. 💡
+
+I won't bore you with the standard page-builder setup (like one of those lazy "you look nice" compliments 🙃).
+
+It's just the usual React component tree managing an iframe preview.
+
+If you're curious, the repo's here: [SayBuild](https://github.com/sagi0312/SayBuild).
+
+Let's skip to the fun part: making it listen.
+
+## Making the Page Builder Listen
+
+I wanted to build something that would actually listen - a revolutionary concept in more than just tech 😉. Enter the Web Speech API.
+
+At first, everything seemed perfect. Speech recognition was working, my page builder was responding in real time.
+
+I thought: this is the beginning of a beautiful friendship.
+
+Cool, right? Except my laptop started heating up like it was single-handedly handling every therapy session on ChatGPT across the country.
+
+Naturally, I assumed: "Oh no! Speech recognition is melting my CPU." Alas — she had been such a lovely friend so far!
+
+Turns out… nope. 🙃
+
+## The Gaslighting Phase
+
+I was mourning my friendship with speech recognition… only to realize it was React gaslighting me all along.
+
+Debugging this felt like having the talk.
+
+**Me:** "Why are you re-rendering me constantly?"
+
+**React:** "I don't know… I just need space right now."
+
+What was actually frying my laptop?
+
+I opened the React Profiler, and there it was: my renders were spiraling out of control. Functions kept getting recreated, and my poor useEffect hook was spinning like a dog chasing its tail.🌀
+
+```javascript
+const sendMessageToHost = (message: Message) => {
+  if (iframeRef.current?.contentWindow) {
+    iframeRef.current.contentWindow.postMessage(
+      message,
+      "http://localhost:3000"
+    );
+  }
+};
+
+useEffect(() => {
+  sendMessageToHost({
+    type: MESSAGE_TYPES.UPDATE_COMPONENTS,
+    components: debouncedComponentTree,
+  });
+}, [debouncedComponentTree, sendMessageToHost]);
+```
+
+React and its mind games! Normally, you toss in a useCallback, hope ESLint nags you about missed dependencies, and move on.
+
+But this time I thought: what if I let the new React Compiler do the heavy lifting - give the dude a chance?
+
+## React Compiler to the Rescue
+
+I felt like I met Lisaan Al-Ghaib when I turned on the experimental compiler in next.config.js:
+
+```javascript
+// next.config.js
+const nextConfig = {
+  experimental: {
+    reactCompiler: true,
+  },
+};
+```
+
+I deleted all my manual memoization.
+
+The results? Render times dropped from 20.8ms → 2.1ms. No useCallback, no headaches, no babysitting dependencies.
+
+Honestly, React Compiler felt like a knight in shining armor. 🛡️
+
+The compiler looked at my sendMessageToHost function, realized it had no dependencies, and just… memoized it for me.
+
+## The Future
+
+Now I have:
+
+- A page builder that listens (mind-blowing!).
+- Laptop no longer stranded in the Sahara without a water bottle.
+- Daydreams of a future with the React Compiler. 💭
+
+Next I focus on:
+
+- Parsing commands like "add a button with text 'Click Me'"
+- Handling chaos like "make it blue" when there are five buttons
+- Mapping natural speech to component props without losing your mind
+
+Basically, we're past the talking stage — things are getting serious. 😉
+
+## "Thank U, Next" by Ariana Grande
+
+Sometimes the best ideas show up when life goes off script.
+
+This one just happens to involve speech recognition, a rejection email, and a little help from the React Compiler.
+
+🎤 To be continued… 💭

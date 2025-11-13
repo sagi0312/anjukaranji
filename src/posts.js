@@ -45,7 +45,8 @@ export const posts = [
     slug: "when-life-gives-you",
     component: WhenLifeGivesYou,
     frontmatter: {
-      title: "When Life Gives You",
+      title: "When Life Gives You...",
+      subtitle: "A Little Sass Makes Life Sexy",
       blurb:
         "A Little Sass Makes Life Sexy - A playful poem about navigating life's chaos.",
       date: "2024-02-10",
@@ -56,6 +57,7 @@ export const posts = [
     component: ReactAndTheCity1,
     frontmatter: {
       title: "React and the City 💘: The Compiler Saves the Day",
+      subtitle: "Welcome to the pilot episode of - React and the City",
       blurb:
         "From job rejection to innovation and discovering how React Compiler solved my performance issues.",
       date: "2024-04-01",
@@ -66,6 +68,7 @@ export const posts = [
     component: ReactAndTheCity2,
     frontmatter: {
       title: "React and the City ⚡️: Nevertheless, She Persisted",
+      subtitle: "⚡️ Part 2: May the Force Be With You!",
       blurb:
         "Continuing the SayBuild journey — from ambitious regex experiments to the adoption of an MCP server architecture.",
       date: "2024-04-15",
@@ -76,6 +79,7 @@ export const posts = [
     component: ReactAndTheCity3,
     frontmatter: {
       title: "React and the City ⚔️ Part 3: Return of the MCP",
+      subtitle: "⚡️ Part 3: When Your AI Helps You Integrate... Another AI",
       blurb:
         "When an AI helps you integrate another AI — wiring MCP servers, Claude's API, and learning the 5-line rule.",
       date: "2024-05-01",
@@ -106,6 +110,7 @@ export const posts = [
     component: DesignPatterns2,
     frontmatter: {
       title: "Design Patterns by Purpose: The Factory Pattern in Frontend Life",
+      subtitle: "🏭 The Factory Pattern – Creating Without Clutter",
       blurb:
         "Breaking down the Factory Pattern with frontend use cases — simplifying object creation.",
       date: "2024-01-10",
@@ -127,6 +132,8 @@ export const posts = [
     component: DesignPatterns4,
     frontmatter: {
       title: "Design Patterns by Purpose: The Command Pattern in Frontend Life",
+      subtitle:
+        "The Command Pattern: Because Undo Shouldn't Be Rocket Science 🚀",
       blurb:
         "Learn the Command Pattern through universal remotes, playful cats, and a reusable Undo button.",
       date: "2024-01-30",

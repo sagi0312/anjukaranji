@@ -32,6 +32,11 @@ export default function BlogPost({ posts }) {
         <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">
           {post.frontmatter.title}
         </h1>
+        {post.frontmatter.subtitle && (
+          <h2 className="text-xl md:text-l text-green-300 mb-4">
+            {post.frontmatter.subtitle}
+          </h2>
+        )}
         <p className="text-indigo-400 text-sm">{post.frontmatter.date}</p>
       </header>
 

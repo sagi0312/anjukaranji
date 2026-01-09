@@ -10,6 +10,7 @@ import DesignPatterns1 from "./posts/design-patterns-by-purpose-a-map.mdx";
 import DesignPatterns2 from "./posts/design-patterns-factory-pattern.mdx";
 import DesignPatterns3 from "./posts/design-patterns-strategy-pattern.mdx";
 import DesignPatterns4 from "./posts/design-patterns-command-pattern.mdx";
+import FromCDNToPixel from "./posts/from-cdn-to-pixel.mdx";
 
 export const posts = [
   {
@@ -137,6 +138,17 @@ export const posts = [
       blurb:
         "Learn the Command Pattern through universal remotes, playful cats, and a reusable Undo button.",
       date: "2024-01-30",
+    },
+  },
+  {
+    slug: "from-cdn-to-pixel-react-journey",
+    component: FromCDNToPixel,
+    frontmatter: {
+      title: "From CDN to Pixel: A React App's Journey",
+      subtitle: "A Hallmark Christmas Romance (But Make It Technical)",
+      blurb:
+        "React's rendering pipeline is basically a rom-com! Browser meets React, sparks fly, re-renders cause drama, and memoization saves the day.",
+      date: "2025-01-08",
     },
   },
 ];

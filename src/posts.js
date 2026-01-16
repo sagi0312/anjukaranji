@@ -11,6 +11,7 @@ import DesignPatterns2 from "./posts/design-patterns-factory-pattern.mdx";
 import DesignPatterns3 from "./posts/design-patterns-strategy-pattern.mdx";
 import DesignPatterns4 from "./posts/design-patterns-command-pattern.mdx";
 import FromCDNToPixel from "./posts/from-cdn-to-pixel.mdx";
+import CodeInATree from "./posts/code-ing-in-a-tree-adding-auto-save.mdx";
 
 export const posts = [
   {
@@ -149,6 +150,17 @@ export const posts = [
       blurb:
         "React's rendering pipeline is basically a rom-com! Browser meets React, sparks fly, re-renders cause drama, and memoization saves the day.",
       date: "2025-01-08",
+    },
+  },
+  {
+    slug: "code-ing-in-a-tree-adding-auto-save-to-freecodecamp",
+    component: CodeInATree,
+    frontmatter: {
+      title: "Code-ing in a Tree: Adding Auto-Save to freeCodeCamp",
+      subtitle: "Or: How I Avoided Vacuuming by Contributing to Open Source",
+      blurb:
+        "From boredom to pull request — fixing a silent UX footgun by adding auto-save to freeCodeCamp.",
+      date: "2025-01-15",
     },
   },
 ];

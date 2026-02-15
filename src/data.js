@@ -8,19 +8,19 @@ export const projects = [
     link: "",
   },
   {
-    title: "Labor Planning Tools",
+    title: "Labor Planning Tools & AWS Migration",
     company: "Amazon",
-    subtitle: "Software Development Engineer I | React, AWS",
+    subtitle: "Software Development Engineer I | React, TypeScript, Java, AWS",
     description:
-      "Built React/TypeScript tools powering labor planning and scheduling across 140+ sort centers. Delivered reusable UI components and APIs that improved staffing accuracy and cut manual reporting at global scale.",
+      "Built React/TypeScript tools powering labor planning across 140+ sort centers, delivering reusable UI components that improved staffing accuracy at global scale. Designed a Lambda-driven pipeline migrating 14M+ MySQL records into Aurora in under 15 minutes.",
     link: "",
   },
   {
-    title: "AWS Migration Pipeline",
-    company: "Amazon",
-    subtitle: "Backend Optimization | AWS Lambda, Aurora",
+    title: "GuideMe Digital Platform",
+    company: "New York Life Insurance Company",
+    subtitle: "Fullstack Engineer | React, TypeScript, Cloud",
     description:
-      "Designed a Lambda-driven pipeline that migrated 14M+ MySQL records into Aurora in under 15 minutes. Automated scheduling, error handling, and monitoring with CDK, SQS, and CloudWatch—reducing query latency from 30 minutes to seconds.",
+      "Building React/TypeScript interfaces for an internal R&D platform that enables agents to capture client information and explore product options. Rapidly prototyping proof-of-concept features to validate new capabilities within cloud-based backend services.",
     link: "",
   },
   {
@@ -53,7 +53,6 @@ export const skills = [
   "API Integration",
   "Git",
   "Auth0",
-  "Amazon Internal Tools",
   "Jest (React Testing)",
   "JUnit (Java Testing)",
   "AWS (Lambda, CDK, Aurora, VPC, VPN, S3, SQS, SNS, CloudWatch, Amplify, DynamoDB, Cognito)",

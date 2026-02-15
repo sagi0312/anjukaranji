@@ -13,19 +13,21 @@ export default function About() {
             </h1>
 
             <p className="mb-8 leading-relaxed">
-              I'm a Full-Stack Software Engineer who loves building intuitive
-              applications and solving real-world problems through technology.
-              My work spans both frontend and backend development — from
-              crafting seamless React.js interfaces to architecting backend
-              systems with Java and AWS. After earning my Bachelor of
-              Engineering in Information Science and Technology, I’ve
-              contributed to cloud infrastructure for high-scale environments
-              and delivered agile, business-driven software solutions.
+              I’m a Full-Stack Engineer who enjoys taking ideas from concept to
+              production and turning problems into shipped products. At Amazon,
+              I built a Lambda-driven migration pipeline that processed 14M+
+              records in under 15 minutes and owned the frontend for a labor
+              planning tool used across hundreds of sort centers. At Executive
+              Homes, I contributed to an offline-first architecture to improve
+              reliability in the field. Now at New York Life, I’m prototyping
+              features that help insurance agents work more efficiently.
             </p>
             <p className="mb-8 leading-relaxed">
-              I'm always curious about emerging technologies and new ways to
-              build better, more impactful systems. Outside of work, I enjoy
-              unwinding with science-fiction shows alongside my daughter.
+              I like building thoughtful software that balances clean
+              architecture with real-world usability. I contribute to open
+              source when I can and try to learn something from every project.
+              Outside of work, you’ll usually find me watching sci-fi with my
+              daughter or exploring mindfulness over a cup of chai.
             </p>
 
             <div className="flex justify-center">

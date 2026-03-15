@@ -12,6 +12,7 @@ import DesignPatterns3 from "./posts/design-patterns-strategy-pattern.mdx";
 import DesignPatterns4 from "./posts/design-patterns-command-pattern.mdx";
 import FromCDNToPixel from "./posts/from-cdn-to-pixel.mdx";
 import CodeInATree from "./posts/code-ing-in-a-tree-adding-auto-save.mdx";
+import repoHighGround from "./posts/its-over-repo-i-have-the-high-ground.mdx";
 
 export const posts = [
   {
@@ -160,7 +161,18 @@ export const posts = [
       subtitle: "Or: How I Avoided Vacuuming by Contributing to Open Source",
       blurb:
         "From boredom to pull request — fixing a silent UX footgun by adding auto-save to freeCodeCamp.",
-      date: "2025-01-15",
+      date: "2026-01-15",
+    },
+  },
+  {
+    slug: "its-over-repo-i-have-the-high-ground",
+    component: repoHighGround,
+    frontmatter: {
+      title: "It's Over, Repo: I Have the High Ground",
+      subtitle: "Turns out the voice of reason has a name. It's a linter.",
+      blurb:
+        "ESLint - That sanctimonious, buzzkill voice in your repo. It's here to save you from yourself.",
+      date: "2026-03-14",
     },
   },
 ];

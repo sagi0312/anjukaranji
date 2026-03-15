@@ -1,0 +1,138 @@
+---
+title: "It's over, Repo. I have the high ground!"
+subtitle: "Or: That sanctimonious, buzzkill voice in your repo. It's here to save you from yourself."
+date: "2026-03-14"
+blurb: "From swallowed insults to AST traversal — building a bite-sized console.log linter from scratch."
+---
+
+![High Ground](/blog/obi-wan.png)
+Your boyfriend has messed up. Royally. He knows it. You know it. The neighbor knows it. Everyone and their mother knows it!
+
+The words form in your head —
+
+_I. Told. You. So._
+
+And then, this other voice, _"Don't be a dick, Anju"_ seemingly comes out of nowhere!
+
+And then, dang! You swallow the sentence.
+
+Congratulations. You're basically Mother Teresa. Just... hotter.
+
+---
+
+Next scenario: The man cuts you off in traffic. Your hand is already on the horn.
+
+A very specific two-word insult involving his mother… is loading.
+
+And again: _Don't be a dick, Anju._
+
+Hand moves away, curse dies in your throat. You're Buddha baby! You are practically levitating.
+
+Or when you've crafted the perfect insult. You know the kind: _Elegant. Perfect. A gift from the universe. Frame-worthy!_
+
+And right before you say it… you get a vision of future-you; rocking back and forth at 2:30 a.m., ruminating, feeling guilty. Forever. Until eternity.
+
+The insult is swallowed. The masterpiece lost to history 😭
+
+Did I mention it already? Yes 🙂‍↕️ — I am Jesus. _(The Vatican has been notified.)_
+
+It whispers… _go on the date with that awkward, geeky classmate. He might be the next Jeff Bezos. Think of the future, Anju._
+
+My God, you short-sighted woman!
+
+That voice? That sanctimonious, buzzkill voice?
+
+**That's the linter for ya!**
+
+---
+
+There are many flavors of linters.
+
+Golint is your strict Asian mum. Checkstyle is your scary PE teacher from 3rd grade.
+
+But today we're talking about the Obi-Wan of the bunch — **ESLint**. Strict older brother energy. Caring but also kind and responsible.
+
+ESLint runs as its own process. Loosely coupled from your IDE, like Obi-Wan living close to Luke but not exactly in the same part of the desert.
+
+With every debounced keystroke, ESLint quietly parses your JavaScript into an **AST**. Basically, it takes your itty-bitty `const x = 1` and turns it into this… A whole crime scene. Over one variable. Iconic! 😏
+
+```javascript
+{
+  "type": "Program",
+  "body": [
+    {
+      "type": "VariableDeclaration",
+      "kind": "const",
+      "declarations": [
+        {
+          "type": "VariableDeclarator",
+          "id": { "type": "Identifier", "name": "x" },
+          "init": { "type": "Literal", "value": 1 }
+        }
+      ]
+    }
+  ]
+}
+```
+
+It walks that entire tree, checks every node for rule violations, and fires off `context.report()` — which is just ESLint politely trying to say:
+
+> Hey… maybe don't be a dick.
+
+ESLint does this with hundreds of rules.
+
+---
+
+### Enter: Baby Yoda
+
+Today, we are not incarnating ESLint. Obi-Wan has seen wars. We are building the **bite-sized Baby Yoda**. Adorable. But the Force? Very much present.
+
+**Our sabers:** catch every rogue `console.log` left behind in production code.
+
+Here's the thing about our baby linter — he's not very smart.
+
+Basically: **see the frog → eat the frog.**
+
+It visits every single node in the AST. The moment it spots a `CallExpression` that looks like `console.log`, it calls `report()`.
+
+```javascript
+function walk(node, visitor) {
+  if (!node || typeof node !== "object") return;
+  if (visitor[node.type]) {
+    visitor[node.type](node);
+  }
+  for (const key of Object.keys(node)) {
+    walk(node[key], visitor);
+  }
+}
+
+walk(ast, {
+  CallExpression(node) {
+    noConsoleLog(node, report);
+  },
+});
+```
+
+Then we wrap it up as a CLI tool using `npm link`, point it at any repo, and let it loose.
+
+That's it!
+
+[→ Repo Link](https://github.com/sagi0312/my-linter)
+
+You have your very own bite-sized conscience; ready to torture your repo!
+
+---
+
+### In a nutshell:
+
+ESLint = Obi-Wan.
+
+Your repo = Anakin.
+
+Moral of the story = Obi-Wan(ESlint) stops Anakin from turning into Darth Vader!
+
+Battle cry = It's over, Anakin! I have the high ground!
+
+---
+
+I rest my saber! ⚔️

@@ -171,7 +171,7 @@ export const posts = [
       title: "It's Over, Repo: I Have the High Ground",
       subtitle: "Turns out the voice of reason has a name. It's a linter.",
       blurb:
-        "ESLint - That sanctimonious, buzzkill voice in your repo. It's here to save you from yourself.",
+        "ESLint - That sanctimonious, buzzkill voice in your repo. The voice that stops you from shipping garbage. A love letter to linters.",
       date: "2026-03-14",
     },
   },

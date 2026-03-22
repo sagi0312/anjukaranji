@@ -1,137 +1,148 @@
 ---
 title: "It's over, Repo. I have the high ground!"
-subtitle: "Or: That sanctimonious, buzzkill voice in your repo. It's here to save you from yourself."
+subtitle: "Or: That sanctimonious, buzzkill voice in your repo."
 date: "2026-03-14"
 blurb: "From swallowed insults to AST traversal — building a bite-sized console.log linter from scratch."
 ---
 
 ![High Ground](/blog/obi-wan.png)
 Your boyfriend has messed up. Royally. He knows it. You know it. The neighbor knows it. Everyone and their mother knows it!
+
 The words form in your head -
-I. Told. You. So.
-And then, this other voice, “Don't be a dick, Anju” seemingly comes out of nowhere!
+*I*. *Told*. *You*. *So*.
+
+And then, this other voice, "Don't be a dick, Anju" seemingly comes out of nowhere!
 And then, dang! You swallow the sentence.
-Congratulations. You’re basically Mother Teresa.
-Just... hotter.
+Congratulations. You're basically Mother Teresa.
+Just… hotter.
 
-Next scenario: The man cuts you off in traffic.Your hand is already on the horn.
-A very specific two-word insult involving his mother… is loading.And again: Don't be a dick, Anju.
-Hand moves away, curse dies in your throat. You’re Buddha baby! You are practically levitating.
+Next scenario: The man cuts you off in traffic. Your hand is already on the horn.
+A very specific two-word insult involving his mother... is loading. And again: Don't be a dick, Anju.
+Hand moves away, curse dies in your throat. You're Buddha baby! You are practically levitating.
 
-Or when you’ve crafted the perfect insult.
-You know the kind: _Elegant_. _Perfect_. A gift from the universe. Frame-worthy!
-And right before you say it… you get a vision of future-you; rocking back and forth at 2:30 a.m., ruminating, feeling guilty. Forever. Until eternity.
-The insult is swallowed. The masterpiece lost to history. Did I mention it already? Yes - I am Jesus. (The Vatican has been notified.)
+Or when you've crafted the perfect insult.
+You know the kind: *Elegant*. *Perfect*. A gift from the universe. Frame-worthy!
+And right before you say it... you get a vision of future-you; rocking back and forth at 2:30 a.m., ruminating, feeling guilty. Forever. Until eternity.
+The insult is swallowed. The masterpiece lost to history. Did I mention already? Yes. I *am* Jesus.
+The Vatican has been notified.
 
-That voice? That sanctimonious, buzzkill voice?
-**That's the linter for ya!**
+That voice? That sanctimonious, holier-than-thou voice?
+**That's the linter for you!**
 
-###Obi-Wan Kenobi of the codebase
+---
 
-For frontend code, ESLint is the dominant choice .
-The Obi-Wan Kenobi of the bunch. Strict older brother energy. But also kind and responsible.
+## Obi-Wan Kenobi of the codebase
 
-Obi-Wan doesn’t live inside your editor. He lives nearby - away from Luke but in the same desert. Watching. Protecting. Running separately...
+Fixing legacy lint errors at work. You know how it goes... you fix one `console.log`, you write a blog.
 
-###Alright, enough Force philosophy. Let's talk about what Obi-Wan is actually doing in that desert.
+For frontend code, ESLint is the dominant choice.
+It's the Obi-Wan Kenobi of the bunch. Strict older brother energy. But kind and responsible.
 
-With every debounced keystroke, ESLint quietly parses your JavaScript into this **AST**. Basically, it takes your itty-bitty
-`const x = 1`
-and turns it into AST (Nodes. Relationships. Structure… a complete ancestry report)... A whole crime scene! (Over one variable. Iconic!😏)
+Obi-Wan doesn't live inside your IDE. He lives nearby - away from Luke but in the same desert. Watching. Protecting. Running separately...
 
-_Don't be a dick, Anju. Explain the code!_
+---
 
-Before ESLint starts walking the AST, ESLint's already mapped all of your codebase. It builds a scope tree - basically tracking which variables live where, and who can access what.
+## Now, let's talk about Obi-Wan's Job Description.
 
-Then each rule registers which node types it cares about and builds the listener map.
+In VS Code, ESLint parses every debounced keystroke and converts JavaScript into AST. It takes your tiny little `const x = 1` and turns it into AST (Nodes. Relationships. Structure... a complete ancestry report) - A whole crime scene! Over 1 variable. Iconic! 😏
 
-During traversal, the listener map decides which rules run, and those rules use the scope tree to decide whether to call `report()`.
+Before it starts walking the AST, it's already mapped your codebase and built a scope tree (basically tracking which variables live where, and who can access what).
+
+Then each rule registers for the node type it cares about. And voila! The listener map is ready.
+
+During the traversal, the listener map decides which rules to apply, and those rules use the scope tree to decide whether to call `report()`.
 
 Think of it as:
 
-> If a `CallExpression`(Sith) appears… activate only the assigned Jedis(RuleA, RuleB) (It's almost corporate).
-> And then the Jedi analyze the situation… and decide whether to draw their sabers.
-
+> If a CallExpression appears, activate only RuleA. Joker walks in, only Batman stands up.
 ```javascript
 {
-  CallExpression: [ruleA, ruleB],
+  CallExpression: [ruleA],
   Identifier: [ruleC],
   VariableDeclaration: [ruleD]
 }
 ```
 
-This is why ESLint scales
+You might already know this part — remember Leetcode? DFS? Visitor pattern? That's the traversal algorithm ESLint uses.
 
-Now, for some Leetcode. Remember DFS? Visitor pattern? That's the traversal algorithm used here.
+(Your little `const x = 1` you ask... triggers nothing.)
+ESLint walks past it like: Not today baby!
 
-(Your little `const x = 1`... triggers nothing, by the way.)
-ESLint walks past it like:
+---
 
-> Not today baby!
+## The Jedis who actually fight: plugins
 
-###The Jedis who actually fight: plugins
+ESLint itself is more like a sitting member of the Jedi council. The Jedis that participate in the clone war, that's all *plugins*:
+eslint-plugin-react (Anakin), eslint-plugin-unicorn (Mace Windu), etc...
 
-ESLint itself is more like a sitting member of the jedi council.The Jedis that go to the clone war, that’s all _plugins_:
+---
 
-- eslint-plugin-react (Anakin)
-- eslint-plugin-unicorn (Ahsoka)
+## Enter Grogu.
 
-###Now… baby Yoda time
+Today, let's make a baby-sized linter... for the heck of it. Not Obi-Wan. He's seen wars. But a bite-sized baby Yoda.
 
-Today, we are not recreating ESLint. Obi-Wan has seen wars. We are building the bite-sized baby Yoda.
-
-Our force can catch every rogue `console.log` left behind in production code.
-
-Here's the thing about our Grogu... he’s not the sharpest tool in the shed.
-Basically: see the frog → eat the frog.
+Our force can catch every rogue `console.log` left behind in code.
+Here's the thing about Grogu though... he's not the sharpest tool in the shed.
+Grogu logic: see the frog → eat the frog.
 
 It visits every single node in the AST and calls `report()`.
 
+Here's the whole traversal - super simple:
 ```javascript
-function walk(node, visitor) {
-  if (!node || typeof node !== "object") return;
-
-  if (visitor[node.type]) {
-    visitor[node.type](node);
-  }
-
-  for (const key of Object.keys(node)) {
-    walk(node[key], visitor);
-  }
-}
+// The traversal accepts AST and the map only bothers itself with 'CallExpression' node.
+// The only Jedi assigned to that node is 'noConsoleLog'.
 
 walk(ast, {
   CallExpression(node) {
     noConsoleLog(node, report);
   },
 });
+
+function walk(node, visitor) {
+  // Base case: if this isn't a real AST node, return early
+  if (!node || typeof node !== "object") return;
+
+  // If we have a Jedi registered for this node type, fire it
+  if (visitor[node.type]) {
+    visitor[node.type](node);
+  }
+
+  // Recurse through all its children just to be sure
+  for (const key of Object.keys(node)) {
+    walk(node[key], visitor);
+  }
+}
 ```
 
-But the Big Bro (ESLint) can optionally attach a fix descriptor like, "_delete characters 42 through 67, replace with this string._". Pass `--fix` and it collects all the patches and applies them.
+Grogu only tattles. ESLint actually cleans up after you. Pass `--fix` and it gathers all the fixes and applies them at the end.
+`npm link` makes it globally accessible on your machine.
+That's it. Your very own prickly little conscience. Ours just has one hill it'll die on: `console.log`.
 
-That’s it! Then we wrap it up as a CLI tool using `npm link`, point it at any repo, and let it chase the frogs.
+---
 
-Now you have your very own little prickly conscience - ready to harass your repo.
+## The new kids on the block
 
-Word travels fast in these parts. And the word is - there's new Jedi in town.
+Word travels fast 'round these parts. And the word is, there's new kids in town.
 
-###The new kids on the block
+Biome and Oxlint are written in Rust. On a 1,000-file repo, ESLint might take 40 seconds. Oxlint does it in under 2. ESLint is JavaScript. Single-threaded by nature.
 
-Biome and Oxlint are written in Rust and make ESLint seem like a boomer.
+These new plugin ecosystems are however still catching up. I tried Biome on a personal project and liked it. Worth your time — YouTube has solid tutorials if you want to go deeper. [I like this one.](https://www.youtube.com/watch?v=x5kwmIaPty8&t=48s)
 
-On a 1,000-file repo, ESLint might take 40 seconds. oxlint does it in under 2.
+ESLint *did* hold the fort down for 13 years. That kind of time does help you load up on ammunition.
 
-The reason is straight-forward. ESLint is JavaScript linting JavaScript. So, single-threaded. Rust linters are multi-threaded.
+---
 
-Worth a look if you're starting fresh. Just know that the plugin ecosystem is still catching up. Obi-Wan is a middle-aged Jedi after all.
+## In a nutshell:
 
-###In a nutshell:
+Linters don't cut you off at the bar. They just hold your hair back while you vomit. The repo is [here](https://github.com/sagi0312/my-linter).
 
-Linters don't cut you off at the bar. They just hold your hair back the morning after.
 
-So the next time you feel personally attacked by ESLint, just know he's warning you because he sees your potential.
-It's just whispering: "You were supposed to bring balance to the codebase..."
+Grogu is thriving.
 
-I rest my saber!🗡️
+I sent the drunk text.
 
-P.S. The repo for baby Yoda lives [here](https://github.com/sagi0312/my-linter).
+We don't talk about it.
+
+My therapist agrees.
+
+Ship the code! 👩‍💻

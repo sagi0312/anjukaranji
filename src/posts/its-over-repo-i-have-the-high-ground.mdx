@@ -9,52 +9,49 @@ blurb: "From swallowed insults to AST traversal — building a bite-sized consol
 Your boyfriend has messed up. Royally. He knows it. You know it. The neighbor knows it. Everyone and their mother knows it!
 
 The words form in your head -
-*I*. *Told*. *You*. *So*.
-
+_I_. _Told_. _You_. _So_.
 And then, this other voice, "Don't be a dick, Anju" seemingly comes out of nowhere!
 And then, dang! You swallow the sentence.
 Congratulations. You're basically Mother Teresa.
-Just… hotter.
+Just... hotter.
 
-Next scenario: The man cuts you off in traffic. Your hand is already on the horn.
+Next scenario: The man cuts you off in traffic. You're hand is already on the horn.
 A very specific two-word insult involving his mother... is loading. And again: Don't be a dick, Anju.
 Hand moves away, curse dies in your throat. You're Buddha baby! You are practically levitating.
 
 Or when you've crafted the perfect insult.
-You know the kind: *Elegant*. *Perfect*. A gift from the universe. Frame-worthy!
+You know the kind: _Elegant_. _Perfect_. A gift from the universe. Frame-worthy!
+
 And right before you say it... you get a vision of future-you; rocking back and forth at 2:30 a.m., ruminating, feeling guilty. Forever. Until eternity.
-The insult is swallowed. The masterpiece lost to history. Did I mention already? Yes. I *am* Jesus.
+The insult is swallowed. The masterpiece lost to history. Did I mention already? Yes. I _am_ Jesus.
 The Vatican has been notified.
 
 That voice? That sanctimonious, holier-than-thou voice?
 **That's the linter for you!**
 
----
-
-## Obi-Wan Kenobi of the codebase
-
-Fixing legacy lint errors at work. You know how it goes... you fix one `console.log`, you write a blog.
+### Fixing legacy lint errors at work. You know how it goes... you fix one error, you write a blog.
 
 For frontend code, ESLint is the dominant choice.
-It's the Obi-Wan Kenobi of the bunch. Strict older brother energy. But kind and responsible.
+It's the Obi-Wan Kenobi. Strict older brother energy. But secretly caring.
 
-Obi-Wan doesn't live inside your IDE. He lives nearby - away from Luke but in the same desert. Watching. Protecting. Running separately...
+Obi-Wan doesn't live inside the IDE. He lives away from Luke but in the same desert.
 
----
+### Let's talk: Job Description.
 
-## Now, let's talk about Obi-Wan's Job Description.
+In VS Code, ESLint parses every debounced keystroke and converts javascript into AST. It takes your tiny little
+`const x = 1`
+and turns it into AST (Nodes. Relationships. Structure... a complete ancestry report). A whole crime scene - over 1 variable. Iconic! 😒
 
-In VS Code, ESLint parses every debounced keystroke and converts JavaScript into AST. It takes your tiny little `const x = 1` and turns it into AST (Nodes. Relationships. Structure... a complete ancestry report) - A whole crime scene! Over 1 variable. Iconic! 😏
+Before it starts traversing the AST, ESLint's already mapped your codebase into a scope tree (basically tracking which variables live where, and who can access what).
 
-Before it starts walking the AST, it's already mapped your codebase and built a scope tree (basically tracking which variables live where, and who can access what).
+Each rule registers for the only node type it truly cares about. Very committed. And voila! The listener map is ready.
 
-Then each rule registers for the node type it cares about. And voila! The listener map is ready.
-
-During the traversal, the listener map decides which rules to apply, and those rules use the scope tree to decide whether to call `report()`.
+During the walk, the listener map applies the rules and these rules with the help of the scope tree decide whether to call `report()`.
 
 Think of it as:
 
-> If a CallExpression appears, activate only RuleA. Joker walks in, only Batman stands up.
+> If a _CallExpression_ appears, wake up only _RuleA_. Joker walks in, only Batman stands up.
+
 ```javascript
 {
   CallExpression: [ruleA],
@@ -63,34 +60,33 @@ Think of it as:
 }
 ```
 
-You might already know this part — remember Leetcode? DFS? Visitor pattern? That's the traversal algorithm ESLint uses.
+You might already know this part... remember Leetcode? DFS? Visitor pattern? That's the algorithm ESLint uses to walk AST.
 
 (Your little `const x = 1` you ask... triggers nothing.)
 ESLint walks past it like: Not today baby!
 
----
+### Plugins - the Jedis who do the actual sparring
 
-## The Jedis who actually fight: plugins
+ESLint itself is more like a sitting member of the jedi council. The Jedis that participate in the clone war, that's all _plugins_!
 
-ESLint itself is more like a sitting member of the Jedi council. The Jedis that participate in the clone war, that's all *plugins*:
 eslint-plugin-react (Anakin), eslint-plugin-unicorn (Mace Windu), etc...
 
----
+### Bienvenido Grogu.
 
-## Enter Grogu.
-
-Today, let's make a baby-sized linter... for the heck of it. Not Obi-Wan. He's seen wars. But a bite-sized baby Yoda.
+Today, let's write a linter... for the heck of it.
+Not _the_ Obi-Wan. He's seen wars. Just a bite-sized 'baby Yoda'.
 
 Our force can catch every rogue `console.log` left behind in code.
-Here's the thing about Grogu though... he's not the sharpest tool in the shed.
-Grogu logic: see the frog → eat the frog.
 
-It visits every single node in the AST and calls `report()`.
+Here's the thing about Grogu though - he's not the sharpest tool in the shed.
+Grogu logic goes something like this: see a frog -> eat the frog.
 
-Here's the whole traversal - super simple:
+It visits every node in the AST and calls report() whenever it finds `console.log`.
+
+Here's the whole traversal - super simple
+
 ```javascript
-// The traversal accepts AST and the map only bothers itself with 'CallExpression' node.
-// The only Jedi assigned to that node is 'noConsoleLog'.
+// The traversal accepts AST and the map only bothers itself with 'CallExpression' node. The only Jedi assigned to that node is 'noConsoleLog'.
 
 walk(ast, {
   CallExpression(node) {
@@ -107,42 +103,35 @@ function walk(node, visitor) {
     visitor[node.type](node);
   }
 
-  // Recurse through all its children just to be sure
+  // Recurse through all it's children just to be sure
   for (const key of Object.keys(node)) {
     walk(node[key], visitor);
   }
 }
 ```
 
-Grogu only tattles. ESLint actually cleans up after you. Pass `--fix` and it gathers all the fixes and applies them at the end.
-`npm link` makes it globally accessible on your machine.
-That's it. Your very own prickly little conscience. Ours just has one hill it'll die on: `console.log`.
+Grogu only complains. ESLint however _is_ the adult and so takes care of the clean up if urged.
+Pass `--fix` and it gathers all the fixes and applies them at the end.
+Calling `npm link` makes it globally accessible on your machine.
+And... that's it. Your very own prickly little conscience is ready to harass your repo.
 
----
+### Word travels fast 'round these parts. And the word is, there's new kids in town.
 
-## The new kids on the block
+Biome and Oxlint are written in Rust. On a 1,000-file repo, ESLint might take 40 seconds. Oxlint does it in under 2s flat! Reason being ESLint is JavaScript. So, single-threaded.
 
-Word travels fast 'round these parts. And the word is, there's new kids in town.
+These new plugin ecosystems are however still catching up. I tried Biome on a personal project and liked it. It is worth your time. YouTube has solid tutorials if you want to go deeper. I like this one - https://www.youtube.com/watch?v=x5kwmIaPty8&t=48s
 
-Biome and Oxlint are written in Rust. On a 1,000-file repo, ESLint might take 40 seconds. Oxlint does it in under 2. ESLint is JavaScript. Single-threaded by nature.
+Just fyi, ESLint _did_ hold the fort down for 13 years (So that kind of time helps you load up on ammunition)
 
-These new plugin ecosystems are however still catching up. I tried Biome on a personal project and liked it. Worth your time — YouTube has solid tutorials if you want to go deeper. [I like this one.](https://www.youtube.com/watch?v=x5kwmIaPty8&t=48s)
+### In a nutshell:
 
-ESLint *did* hold the fort down for 13 years. That kind of time does help you load up on ammunition.
+Linters don't cut you off at the bar. They just hold your hair back while you vomit.
 
----
+Baby linter repo is [here](https://github.com/sagi0312/my-linter).
 
-## In a nutshell:
-
-Linters don't cut you off at the bar. They just hold your hair back while you vomit. The repo is [here](https://github.com/sagi0312/my-linter).
-
-
-Grogu is thriving.
-
-I sent the drunk text.
-
-We don't talk about it.
-
-My therapist agrees.
-
-Ship the code! 👩‍💻
+_Grogu is thriving._
+_I sent the drunk text._
+_We don't talk about it._
+_Linter agrees._
+_Ship the code!_
+👩‍💻

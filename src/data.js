@@ -50,7 +50,6 @@ export const skills = [
   "Java",
   "Spring Framework",
   "Hibernate",
-  "API Integration",
   "Git",
   "Auth0",
   "Jest (React Testing)",

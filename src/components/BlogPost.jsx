@@ -22,18 +22,18 @@ export default function BlogPost({ posts }) {
     <article className="container mx-auto px-5 md:px-10 py-10 max-w-4xl">
       <Link
         to="/#writings"
-        className="inline-flex items-center text-green-400 hover:text-green-300 mb-8"
+        className="inline-flex items-center text-green-200 hover:text-green-300 mb-8"
       >
         <ArrowLeftIcon className="w-4 h-4 mr-2" />
         Back to writings
       </Link>
 
       <header className="mb-8">
-        <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">
+        <h1 className="text-3xl md:text-3xl font-bold text-white mb-4">
           {post.frontmatter.title}
         </h1>
         {post.frontmatter.subtitle && (
-          <h2 className="text-xl md:text-l text-green-300 mb-4">
+          <h2 className="text-l md:text-md text-green-300 mb-4">
             {post.frontmatter.subtitle}
           </h2>
         )}
@@ -41,7 +41,7 @@ export default function BlogPost({ posts }) {
       </header>
 
       <div
-        className="prose prose-invert prose-lg max-w-none space-y-4
+        className="prose prose-invert prose-s max-w-none space-y-4
                     prose-headings:text-white 
                     prose-p:text-gray-300 prose-p:mb-4
                     prose-a:text-green-400 prose-a:no-underline hover:prose-a:text-green-300

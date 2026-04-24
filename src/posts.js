@@ -13,6 +13,7 @@ import DesignPatterns4 from "./posts/design-patterns-command-pattern.mdx";
 import FromCDNToPixel from "./posts/from-cdn-to-pixel.mdx";
 import CodeInATree from "./posts/code-ing-in-a-tree-adding-auto-save.mdx";
 import repoHighGround from "./posts/its-over-repo-i-have-the-high-ground.mdx";
+import EC2GetsAnAudienceWithTheQueen from "./posts/ec2-gets-an-audience-with-us.mdx";
 
 export const posts = [
   {
@@ -173,6 +174,17 @@ export const posts = [
       blurb:
         "ESLint - That sanctimonious, buzzkill voice in your repo. The voice that stops you from shipping garbage. A love letter to linters.",
       date: "2026-03-14",
+    },
+  },
+  {
+    slug: "ec2-gets-an-audience-with-the-queen",
+    component: EC2GetsAnAudienceWithTheQueen,
+    frontmatter: {
+      title: "EC2 Gets an Audience with the Queen",
+      subtitle:
+        "A humorous introduction to AWS EC2 for the AWS Royal Court Chronicles",
+      blurb: "We, PERNy the Magnanimous graciously allocate today for EC2.",
+      date: "2026-04-23",
     },
   },
 ];

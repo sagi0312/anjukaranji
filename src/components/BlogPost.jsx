@@ -1,17 +1,25 @@
-import { useParams, Link } from "react-router-dom";
+import { useParams, Link, useNavigate } from "react-router-dom";
 import { ArrowLeftIcon } from "@heroicons/react/24/solid";
 
 export default function BlogPost({ posts }) {
   const { slug } = useParams();
+  const navigate = useNavigate();
   const post = posts.find((p) => p.slug === slug);
+
+  const goToWritings = () => {
+    navigate("/writings");
+  };
 
   if (!post) {
     return (
       <div className="container mx-auto px-5 py-20 text-center">
         <h1 className="text-4xl text-white mb-4">Post not found</h1>
-        <Link to="/#writings" className="text-green-400 hover:text-green-300">
+        <button
+          onClick={goToWritings}
+          className="text-green-400 hover:text-green-300"
+        >
           ← Back to writings
-        </Link>
+        </button>
       </div>
     );
   }
@@ -20,13 +28,13 @@ export default function BlogPost({ posts }) {
 
   return (
     <article className="container mx-auto px-5 md:px-10 py-10 max-w-4xl">
-      <Link
-        to="/#writings"
+      <button
+        onClick={goToWritings}
         className="inline-flex items-center text-green-200 hover:text-green-300 mb-8"
       >
         <ArrowLeftIcon className="w-4 h-4 mr-2" />
         Back to writings
-      </Link>
+      </button>
 
       <header className="mb-8">
         <h1 className="text-3xl md:text-3xl font-bold text-white mb-4">

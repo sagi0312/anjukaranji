@@ -1,17 +1,14 @@
-import { Link, useLocation } from "react-router-dom";
+import { useEffect } from "react";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { ArrowRightIcon } from "@heroicons/react/24/solid";
 
 export default function Navbar() {
   const location = useLocation();
+  const navigate = useNavigate();
   const isHomePage = location.pathname === "/";
 
-  const scrollToSection = (sectionId) => {
-    if (!isHomePage) {
-      window.location.href = `/#${sectionId}`;
-    } else {
-      const element = document.getElementById(sectionId);
-      element?.scrollIntoView({ behavior: "smooth" });
-    }
+  const goToSection = (sectionId) => {
+    navigate("/" + sectionId);
   };
 
   return (
@@ -23,40 +20,24 @@ export default function Navbar() {
           </Link>
         </div>
         <nav className="md:mr-auto md:ml-4 md:py-1 md:pl-4 md:border-l md:border-gray-700	flex flex-wrap items-center text-base justify-center">
-          {isHomePage ? (
-            <>
-              <a href="#projects" className="mr-5 hover:text-white">
-                Past Work
-              </a>
-              <a href="#writings" className="mr-5 hover:text-white">
-                Writings
-              </a>
-              <a href="#skills" className="mr-5 hover:text-white">
-                Skills
-              </a>
-            </>
-          ) : (
-            <>
-              <button
-                onClick={() => scrollToSection("projects")}
-                className="mr-5 hover:text-white bg-transparent border-0 cursor-pointer text-base"
-              >
-                Past Work
-              </button>
-              <button
-                onClick={() => scrollToSection("writings")}
-                className="mr-5 hover:text-white bg-transparent border-0 cursor-pointer text-base"
-              >
-                Writings
-              </button>
-              <button
-                onClick={() => scrollToSection("skills")}
-                className="mr-5 hover:text-white bg-transparent border-0 cursor-pointer text-base"
-              >
-                Skills
-              </button>
-            </>
-          )}
+          <button
+            onClick={() => goToSection("projects")}
+            className="mr-5 hover:text-white"
+          >
+            Past Work
+          </button>
+          <button
+            onClick={() => goToSection("writings")}
+            className="mr-5 hover:text-white"
+          >
+            Writings
+          </button>
+          <button
+            onClick={() => goToSection("skills")}
+            className="mr-5 hover:text-white"
+          >
+            Skills
+          </button>
           <a
             href="/Anju-Karanji-Resume.pdf"
             target="_blank"
@@ -66,13 +47,13 @@ export default function Navbar() {
             Résumé
           </a>
         </nav>
-        <a
-          href="#contact"
+        <button
+          onClick={() => goToSection("contact")}
           className="inline-flex items-center bg-gray-800 border-0 py-1 px-3 focus:outline-none hover:bg-gray-700 rounded text-green-400 text-base mt-4 md:mt-0"
         >
           Hire Me
           <ArrowRightIcon className="w-4 h-4 ml-1" />
-        </a>
+        </button>
       </div>
     </header>
   );

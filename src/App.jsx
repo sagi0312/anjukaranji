@@ -17,22 +17,34 @@ import BlogPost from "./components/BlogPost";
 import { posts } from "./posts";
 
 function ScrollToTop() {
-  const { pathname, hash } = useLocation();
+  const { pathname } = useLocation();
 
   useEffect(() => {
-    if (hash) {
-      // If there's a hash, jump directly to that element (no smooth scroll)
-      const element = document.getElementById(hash.replace("#", ""));
-      if (element) {
-        element.scrollIntoView({ behavior: "instant" });
-      }
-    } else {
-      // Otherwise scroll to top
-      window.scrollTo(0, 0);
-    }
-  }, [pathname, hash]);
+    window.scrollTo(0, 0);
+  }, [pathname]);
 
   return null;
+}
+
+function ProjectsPage() {
+  useEffect(() => {
+    document.getElementById("projects")?.scrollIntoView({ behavior: "smooth" });
+  }, []);
+  return <Projects />;
+}
+
+function SkillsPage() {
+  useEffect(() => {
+    document.getElementById("skills")?.scrollIntoView({ behavior: "smooth" });
+  }, []);
+  return <Skills />;
+}
+
+function ContactPage() {
+  useEffect(() => {
+    document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" });
+  }, []);
+  return <Contact />;
 }
 
 function HomePage() {
@@ -56,7 +68,12 @@ export default function App() {
         <Navbar />
         <Routes>
           <Route path="/" element={<HomePage />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/projects" element={<ProjectsPage />} />
+          <Route path="/writings" element={<Writings posts={posts} />} />
           <Route path="/writings/:slug" element={<BlogPost posts={posts} />} />
+          <Route path="/skills" element={<SkillsPage />} />
+          <Route path="/contact" element={<ContactPage />} />
           <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>
       </main>

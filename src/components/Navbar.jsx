@@ -1,4 +1,4 @@
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate, useLocation } from "react-router-dom";
 import {
   ArrowRightIcon,
   Bars3Icon,
@@ -10,9 +10,18 @@ export default function Navbar() {
   const navigate = useNavigate();
   const [menuOpen, setMenuOpen] = useState(false);
 
+  const location = useLocation();
+
   const goToSection = (sectionId) => {
-    navigate("/" + sectionId);
-    setMenuOpen(false);
+    if (location.pathname === "/" + sectionId) {
+      // already on this route — just scroll
+      document
+        .getElementById(sectionId)
+        ?.scrollIntoView({ behavior: "smooth" });
+    } else {
+      navigate("/" + sectionId);
+      setMenuOpen(false);
+    }
   };
 
   const navLinks = [

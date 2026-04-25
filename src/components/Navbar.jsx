@@ -31,7 +31,7 @@ export default function Navbar() {
         />
       )}
 
-      <header className="bg-gray-900 border-b border-gray-800 sticky top-0 z-50">
+      <header className="bg-gray-900 border-b border-gray-800 sticky top-0 z-50 overflow-hidden">
         <div className="container mx-auto flex px-10 py-4 items-center">
           <Link
             to="/"
@@ -89,7 +89,7 @@ export default function Navbar() {
 
         {/* Mobile menu */}
         {menuOpen && (
-          <div className="md:hidden border-t border-gray-800 bg-gray-900 px-10 py-6 flex flex-col gap-5 relative z-50">
+          <div className="md:hidden border-t border-gray-800 bg-gray-900 px-10 py-6 flex flex-col gap-5 relative z-50 rounded-b-xl">
             {navLinks.map(({ label, section }) => (
               <button
                 key={section}

@@ -72,7 +72,7 @@ export default function About() {
                 Full-Stack
               </span>
               <span className="text-gray-400 text-xs">
-                React · TypeScript · AWS
+                React · TypeScript · Java · AWS
               </span>
             </div>
           </div>

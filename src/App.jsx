@@ -16,38 +16,29 @@ import Writings from "./components/Writings";
 import BlogPost from "./components/BlogPost";
 import { posts } from "./posts";
 
-function ScrollToTop() {
-  const { pathname } = useLocation();
-
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, [pathname]);
-
-  return null;
-}
-
-function ProjectsPage() {
-  useEffect(() => {
-    document.getElementById("projects")?.scrollIntoView({ behavior: "smooth" });
-  }, []);
-  return <Projects />;
-}
-
-function SkillsPage() {
-  useEffect(() => {
-    document.getElementById("skills")?.scrollIntoView({ behavior: "smooth" });
-  }, []);
-  return <Skills />;
-}
-
-function ContactPage() {
-  useEffect(() => {
-    document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" });
-  }, []);
-  return <Contact />;
-}
-
 function HomePage() {
+  const location = useLocation();
+
+  useEffect(() => {
+    // Map URL path to section ID
+    const pathToSection = {
+      "/projects": "projects",
+      "/writings": "writings",
+      "/skills": "skills",
+      "/contact": "contact",
+      "/about": "about",
+    };
+
+    const sectionId = pathToSection[location.pathname];
+    if (sectionId) {
+      setTimeout(() => {
+        document
+          .getElementById(sectionId)
+          ?.scrollIntoView({ behavior: "smooth" });
+      }, 100);
+    }
+  }, [location.pathname]);
+
   return (
     <>
       <About />
@@ -63,17 +54,16 @@ function HomePage() {
 export default function App() {
   return (
     <Router>
-      <ScrollToTop />
       <main className="text-gray-400 bg-gray-900 body-font">
         <Navbar />
         <Routes>
           <Route path="/" element={<HomePage />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/projects" element={<ProjectsPage />} />
-          <Route path="/writings" element={<Writings posts={posts} />} />
+          <Route path="/writings" element={<HomePage />} />
+          <Route path="/projects" element={<HomePage />} />
+          <Route path="/skills" element={<HomePage />} />
+          <Route path="/contact" element={<HomePage />} />
+          <Route path="/about" element={<HomePage />} />
           <Route path="/writings/:slug" element={<BlogPost posts={posts} />} />
-          <Route path="/skills" element={<SkillsPage />} />
-          <Route path="/contact" element={<ContactPage />} />
           <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>
       </main>

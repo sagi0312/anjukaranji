@@ -1,10 +1,15 @@
 import { useParams, Link, useNavigate } from "react-router-dom";
+import { useEffect } from "react";
 import { ArrowLeftIcon } from "@heroicons/react/24/solid";
 
 export default function BlogPost({ posts }) {
   const { slug } = useParams();
   const navigate = useNavigate();
   const post = posts.find((p) => p.slug === slug);
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   const goToWritings = () => {
     navigate("/writings");

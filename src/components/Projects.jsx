@@ -40,12 +40,12 @@ export default function Projects() {
                 className="group flex flex-col justify-between border border-gray-800 rounded-xl bg-gray-800 bg-opacity-40 p-7 transition-all duration-200 hover:-translate-y-0.5 hover:border-green-400 hover:border-opacity-40"
               >
                 <div>
-                  <div className="flex items-center justify-between mb-3">
+                  <div className="flex flex-col gap-2 mb-3">
                     <span className="text-xs font-semibold tracking-widest uppercase text-green-400">
                       {project.subtitle}
                     </span>
                     {project.company && (
-                      <span className="text-xs font-medium text-gray-500 border border-gray-700 rounded-full px-3 py-0.5 ml-2 shrink-0">
+                      <span className="self-start text-xs font-medium text-gray-500 border border-gray-700 rounded-full px-3 py-0.5">
                         {project.company}
                       </span>
                     )}

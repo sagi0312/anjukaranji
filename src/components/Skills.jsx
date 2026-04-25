@@ -31,38 +31,38 @@ export default function Skills() {
           </div>
 
           <div className="max-w-3xl mx-auto">
-            {/* Core skills — 2 cols on mobile, 3 on sm+ */}
-            <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 mb-6">
-              {coreSkills.map((skill) => (
+            {/* Categorized core skills */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4">
+              {coreSkills.map(({ category, skills }) => (
                 <div
-                  key={skill}
-                  className="group flex items-center gap-3 bg-gray-800 bg-opacity-40 border border-gray-800 rounded-xl px-4 py-3.5 transition-all duration-200 hover:border-green-400 hover:border-opacity-40 hover:-translate-y-0.5"
+                  key={category}
+                  className="border border-gray-800 rounded-xl p-5 bg-gray-800 bg-opacity-20"
                 >
-                  <span className="w-1.5 h-1.5 rounded-full bg-green-400 flex-shrink-0 group-hover:scale-125 transition-transform" />
-                  <span className="text-sm text-gray-400 group-hover:text-gray-200 transition-colors">
-                    {skill}
-                  </span>
+                  <p className="text-xs font-semibold tracking-widest uppercase text-green-400 mb-4">
+                    {category}
+                  </p>
+                  <div className="flex flex-wrap gap-2">
+                    {skills.map((skill) => (
+                      <span
+                        key={skill}
+                        className="text-xs text-gray-400 bg-gray-800 border border-gray-700 rounded-lg px-3 py-1.5 hover:border-green-400 hover:border-opacity-40 hover:text-gray-200 transition-all cursor-default"
+                      >
+                        {skill}
+                      </span>
+                    ))}
+                  </div>
                 </div>
               ))}
             </div>
 
             {/* AWS grouped card */}
-            <div className="border border-gray-800 rounded-xl p-6 bg-gray-800 bg-opacity-20">
-              <div className="flex flex-col gap-1 mb-5">
-                <div className="flex items-center gap-3">
-                  <span className="w-1.5 h-1.5 rounded-full bg-green-400 flex-shrink-0" />
-                  <span
-                    className="text-sm font-normal"
-                    style={{
-                      fontFamily: "'DM Serif Display', Georgia, serif",
-                      color: "#e8e3d5",
-                    }}
-                  >
-                    Amazon Web Services
-                  </span>
-                </div>
-                <span className="text-xs font-semibold tracking-widest uppercase text-gray-600 pl-[18px]">
-                  hands-on experience
+            <div className="border border-gray-800 rounded-xl p-5 bg-gray-800 bg-opacity-20">
+              <div className="flex items-center justify-between mb-4">
+                <p className="text-xs font-semibold tracking-widest uppercase text-green-400">
+                  Amazon Web Services
+                </p>
+                <span className="text-xs font-semibold tracking-widest uppercase text-gray-600">
+                  Hands-on experience
                 </span>
               </div>
               <div className="flex flex-wrap gap-2">

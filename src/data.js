@@ -4,7 +4,7 @@ export const projects = [
     company: "Executive Homes",
     subtitle: "Fullstack Engineer | React, TypeScript, AWS",
     description:
-      "Engineered React/TypeScript components for workflows like cutsheets, floor plans, and contractor checklists. Integrated Auth0, shipped pixel-perfect UIs from Figma, and drove migration to Replicache + Aurora for offline-first collaboration.",
+      "Built a real-time, offline-first collaboration system using Replicache + Aurora for multi-user editing and conflict resolution. Designed 40+ reusable React components — drag-and-drop, scroll-tracking, custom layout engines — all without third-party libraries. Shipped pixel-perfect UIs from Figma and improved load time through memoization, virtualized lists, and state normalization.",
     link: "",
   },
   {
@@ -12,7 +12,7 @@ export const projects = [
     company: "Amazon",
     subtitle: "Software Development Engineer I | React, TypeScript, Java, AWS",
     description:
-      "Built React/TypeScript tools powering labor planning across 140+ sort centers, delivering reusable UI components that improved staffing accuracy at global scale. Designed a Lambda-driven pipeline migrating 14M+ MySQL records into Aurora in under 15 minutes.",
+      "Built React/TypeScript tools for labor planning and shift scheduling across 140+ sort centers and 100K+ associates. Owned a Java-based Lambda migration pipeline that processed 14M+ JSON records, cutting data retrieval latency from ~30 minutes to seconds. Wrote unit and integration tests using JUnit and Amazon QA frameworks.",
     link: "",
   },
   {
@@ -20,7 +20,7 @@ export const projects = [
     company: "New York Life Insurance Company",
     subtitle: "Fullstack Engineer | React, TypeScript, Cloud",
     description:
-      "Building React/TypeScript interfaces for an internal platform that enables agents to capture client information and explore product options. Collaborating with tech leads and designers to improve usability, performance, and long-term maintainability.",
+      "Contributing to an internal platform that enables NYL agents to capture client information, explore product options, and initiate applications in a streamlined workflow. Rapidly prototyping proof-of-concept features within an R&D team while collaborating with tech leads and designers on usability and long-term maintainability.",
     link: "",
   },
   {
@@ -28,7 +28,7 @@ export const projects = [
     company: "Various Clients",
     subtitle: "Software Consultant | Java, Spring, Hibernate, SQL",
     description:
-      "Delivered enterprise apps for retail and IT clients using Java, Spring, and Hibernate. Built an office-automation system, compliance tracker, healthcare app (later NexHealth), and SETS—an internal tool for tracking employee skills.",
+      "Delivered enterprise apps for retail and IT clients using Java, Spring, and Hibernate. Built an office-automation system, compliance tracker, healthcare app (later NexHealth), and SETS — an internal tool for tracking employee skills.",
     link: "",
   },
 ];
@@ -40,24 +40,40 @@ export const additionalExperience = {
 };
 
 export const coreSkills = [
-  "React.js",
-  "TypeScript",
-  "JavaScript",
-  "HTML",
-  "CSS / SCSS",
-  "Redux",
-  "MaterialUI",
-  "Storybook",
-  "Node.js",
-  "Java",
-  "Spring Framework",
-  "GraphQL",
-  "SQL",
-  "Auth0",
-  "Git",
-  "Cypress",
-  "Jest",
-  "JUnit",
+  {
+    category: "Frontend",
+    skills: [
+      "React.js",
+      "TypeScript",
+      "JavaScript",
+      "HTML",
+      "CSS / SCSS",
+      "Redux",
+      "MaterialUI",
+      "Storybook",
+      "Replicache",
+      "Figma",
+    ],
+  },
+  {
+    category: "Backend",
+    skills: [
+      "Node.js",
+      "Java",
+      "Spring Framework",
+      "Hibernate",
+      "GraphQL",
+      "SQL",
+    ],
+  },
+  {
+    category: "Testing",
+    skills: ["Cypress", "Jest", "JUnit", "Integration Testing"],
+  },
+  {
+    category: "Tools",
+    skills: ["Git", "Auth0", "Webpack", "Babel", "Storybook"],
+  },
 ];
 
 export const awsSkills = [

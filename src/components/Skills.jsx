@@ -31,8 +31,8 @@ export default function Skills() {
           </div>
 
           <div className="max-w-3xl mx-auto">
-            {/* Core skills — 3 cols, 18 items = 6 perfect rows */}
-            <div className="grid grid-cols-3 gap-3 mb-6">
+            {/* Core skills — 2 cols on mobile, 3 on sm+ */}
+            <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 mb-6">
               {coreSkills.map((skill) => (
                 <div
                   key={skill}
@@ -48,18 +48,20 @@ export default function Skills() {
 
             {/* AWS grouped card */}
             <div className="border border-gray-800 rounded-xl p-6 bg-gray-800 bg-opacity-20">
-              <div className="flex items-center gap-3 mb-5">
-                <span className="w-1.5 h-1.5 rounded-full bg-green-400 flex-shrink-0" />
-                <span
-                  className="text-sm font-normal"
-                  style={{
-                    fontFamily: "'DM Serif Display', Georgia, serif",
-                    color: "#e8e3d5",
-                  }}
-                >
-                  Amazon Web Services
-                </span>
-                <span className="text-xs font-semibold tracking-widest uppercase text-gray-600">
+              <div className="flex flex-col gap-1 mb-5">
+                <div className="flex items-center gap-3">
+                  <span className="w-1.5 h-1.5 rounded-full bg-green-400 flex-shrink-0" />
+                  <span
+                    className="text-sm font-normal"
+                    style={{
+                      fontFamily: "'DM Serif Display', Georgia, serif",
+                      color: "#e8e3d5",
+                    }}
+                  >
+                    Amazon Web Services
+                  </span>
+                </div>
+                <span className="text-xs font-semibold tracking-widest uppercase text-gray-600 pl-[18px]">
                   hands-on experience
                 </span>
               </div>

@@ -20,7 +20,7 @@ export const projects = [
     company: "New York Life Insurance Company",
     subtitle: "Fullstack Engineer | React, TypeScript, Cloud",
     description:
-      "Building React/TypeScript interfaces for an internal R&D platform that enables agents to capture client information and explore product options. Rapidly prototyping proof-of-concept features to validate new capabilities within cloud-based backend services.",
+      "Building React/TypeScript interfaces for an internal platform that enables agents to capture client information and explore product options. Collaborating with tech leads and designers to improve usability, performance, and long-term maintainability.",
     link: "",
   },
   {
@@ -39,20 +39,38 @@ export const additionalExperience = {
     "Tutored Java (Varsity Tutors), tested mobile/web apps (ClassCalc), and built responsive nonprofit websites focused on usability, branding, and SEO.",
 };
 
-export const skills = [
+export const coreSkills = [
   "React.js",
   "TypeScript",
   "JavaScript",
   "HTML",
-  "CSS",
-  "SCSS",
-  "SQL",
+  "CSS / SCSS",
+  "Redux",
+  "MaterialUI",
+  "Storybook",
+  "Node.js",
   "Java",
   "Spring Framework",
-  "Hibernate",
-  "Git",
+  "GraphQL",
+  "SQL",
   "Auth0",
-  "Jest (React Testing)",
-  "JUnit (Java Testing)",
-  "AWS (Lambda, CDK, Aurora, VPC, VPN, S3, SQS, SNS, CloudWatch, Amplify, DynamoDB, Cognito)",
+  "Git",
+  "Cypress",
+  "Jest",
+  "JUnit",
+];
+
+export const awsSkills = [
+  "Lambda",
+  "Step Functions",
+  "API Gateway",
+  "Aurora",
+  "CDK",
+  "S3",
+  "SQS",
+  "SNS",
+  "CloudWatch",
+  "Amplify",
+  "DynamoDB",
+  "Cognito",
 ];

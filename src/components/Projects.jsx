@@ -1,63 +1,105 @@
-import { CodeBracketIcon } from "@heroicons/react/24/solid";
 import { projects, additionalExperience } from "../data";
 
 export default function Projects() {
   return (
     <>
-      <section id="projects" className="text-gray-400 bg-gray-900 body-font">
-        <div className="container px-5 py-10 mx-auto text-center lg:px-40">
-          <div className="flex flex-col w-full mb-20">
-            <CodeBracketIcon className="mx-auto inline-block w-10 mb-4" />
-            <h1 className="sm:text-4xl text-3xl font-medium title-font mb-4 text-white">
+      <link
+        href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&display=swap"
+        rel="stylesheet"
+      />
+
+      <section id="projects" className="bg-gray-900">
+        <div className="container px-10 py-20 mx-auto">
+          {/* Section header */}
+          <div className="flex flex-col w-full mb-16 text-center">
+            <p className="text-green-400 text-xs font-semibold tracking-widest uppercase mb-4">
+              Portfolio
+            </p>
+            <h2
+              className="text-3xl sm:text-4xl mb-5 font-normal"
+              style={{
+                fontFamily: "'DM Serif Display', Georgia, serif",
+                color: "#e8e3d5",
+              }}
+            >
               Apps I've Built
-            </h1>
-            <p className="lg:w-2/3 mx-auto leading-relaxed text-base">
-              Over the years, I've had the opportunity to work across a range of
-              technologies — from early consulting projects in India to
-              large-scale applications at Amazon and Executive Homes. Today, my
-              focus is on crafting intuitive frontend applications and scalable
-              backend systems. Here are some of the projects I've worked on that
-              reflect my journey and passion for solving real-world challenges
-              through technology.
+            </h2>
+            <p className="lg:w-2/3 mx-auto leading-relaxed text-gray-400 text-base">
+              From early consulting projects in India to large-scale systems at
+              Amazon and Executive Homes — here's a selection of work that
+              reflects my journey building intuitive frontends and scalable
+              backends.
             </p>
           </div>
-          <div className="flex flex-wrap -m-4">
+
+          {/* Project cards */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             {projects.map((project) => (
-              <div key={project.title} className="p-4 sm:w-1/2 w-full">
-                <div className="h-full flex flex-col justify-between border-4 border-gray-800 bg-gray-900 p-8 transform transition-transform duration-300 hover:-translate-y-2 hover:shadow-xl">
-                  <div>
-                    <h2 className="tracking-widest text-sm title-font font-medium text-green-400 mb-1">
+              <div
+                key={project.title}
+                className="group flex flex-col justify-between border border-gray-800 rounded-xl bg-gray-800 bg-opacity-40 p-7 transition-all duration-200 hover:-translate-y-0.5 hover:border-green-400 hover:border-opacity-40"
+              >
+                <div>
+                  <div className="flex items-center justify-between mb-3">
+                    <span className="text-xs font-semibold tracking-widest uppercase text-green-400">
                       {project.subtitle}
-                    </h2>
-                    <h1 className="title-font text-lg font-medium text-white mb-1">
-                      {project.title}
-                    </h1>
+                    </span>
                     {project.company && (
-                      <h3 className="text-base font-semibold text-indigo-500 mb-3">
+                      <span className="text-xs font-medium text-gray-500 border border-gray-700 rounded-full px-3 py-0.5 ml-2 shrink-0">
                         {project.company}
-                      </h3>
+                      </span>
                     )}
-                    <p className="leading-relaxed">{project.description}</p>
                   </div>
-                  {project.link ? (
-                    <a
-                      className="text-yellow-400 leading-relaxed mt-4 break-words"
-                      href={project.link}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      {project.link}
-                    </a>
-                  ) : (
-                    <p className="mt-4"></p>
-                  )}
+
+                  <h3
+                    className="text-lg font-normal mb-3 group-hover:text-green-400 transition-colors"
+                    style={{
+                      fontFamily: "'DM Serif Display', Georgia, serif",
+                      color: "#e8e3d5",
+                    }}
+                  >
+                    {project.title}
+                  </h3>
+
+                  <p className="leading-relaxed text-gray-400 text-sm">
+                    {project.description}
+                  </p>
                 </div>
+
+                {project.link && (
+                  <a
+                    className="inline-flex items-center gap-1.5 mt-6 text-xs text-green-400 hover:text-green-300 transition-colors break-all"
+                    href={project.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      className="w-3.5 h-3.5 flex-shrink-0"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                      strokeWidth={2}
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
+                      />
+                    </svg>
+                    {project.link}
+                  </a>
+                )}
               </div>
             ))}
           </div>
-          {/* Additional Experience */}
-          <div className="mt-10 text-gray-400 text-left  pt-4">
-            <span className="font-semibold text-green-400">
+
+          {/* Additional experience */}
+          <div className="mt-12 border-t border-gray-800 pt-8 text-sm text-gray-400">
+            <span
+              className="font-semibold text-green-400"
+              style={{ fontFamily: "'DM Serif Display', Georgia, serif" }}
+            >
               {additionalExperience.title}:
             </span>{" "}
             {additionalExperience.description}

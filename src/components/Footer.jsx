@@ -5,27 +5,9 @@ const Footer = () => {
         <span className="text-xs text-gray-600 tracking-wide">
           Full-Stack Engineer · React · Java · TypeScript · AWS
         </span>
-
         <span className="text-xs text-gray-600">
           © {new Date().getFullYear()}
         </span>
-
-        <div className="flex items-center gap-6">
-          {[
-            { label: "LinkedIn", href: "https://linkedin.com/in/anju-karanji" },
-            { label: "GitHub", href: "https://github.com/sagi0312" },
-          ].map(({ label, href }) => (
-            <a
-              key={label}
-              href={href}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-xs font-semibold tracking-widest uppercase text-gray-500 hover:text-green-400 transition-colors"
-            >
-              {label}
-            </a>
-          ))}
-        </div>
       </div>
     </footer>
   );

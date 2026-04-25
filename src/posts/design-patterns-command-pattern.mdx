@@ -2,7 +2,7 @@
 title: "Design Patterns by Purpose: The Command Pattern in Frontend Life (Part 4)"
 subtitle: "The Command Pattern: Because Undo Shouldn't Be Rocket Science 🚀"
 blurb: "Learn the Command Pattern through universal remotes, playful cats, and a reusable Undo button."
-date: "2024-01-30"
+date: "2025-01-30"
 slug: "design-patterns-command-pattern"
 ---
 
@@ -90,7 +90,10 @@ class RemoteControl {
   private undoStack: ICommand[] = [];
   private redoStack: ICommand[] = [];
 
-  constructor(private on: ICommand, private off: ICommand) {}
+  constructor(
+    private on: ICommand,
+    private off: ICommand,
+  ) {}
 
   pressOn() {
     this.on.execute();

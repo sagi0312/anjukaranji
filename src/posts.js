@@ -13,7 +13,7 @@ import DesignPatterns4 from "./posts/design-patterns-command-pattern.mdx";
 import FromCDNToPixel from "./posts/from-cdn-to-pixel.mdx";
 import CodeInATree from "./posts/code-ing-in-a-tree-adding-auto-save.mdx";
 import repoHighGround from "./posts/its-over-repo-i-have-the-high-ground.mdx";
-import EC2GetsAnAudienceWithTheQueen from "./posts/ec2-gets-an-audience-with-us.mdx";
+import EC2GetsAnAudienceWithTheQueen from "./posts/ec2-gets-an-audience-with-the-queen.mdx";
 
 export const posts = [
   {

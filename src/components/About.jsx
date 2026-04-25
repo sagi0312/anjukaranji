@@ -35,17 +35,6 @@ export default function About() {
               to complex systems — and turning ideas into shipped products.
             </p>
 
-            <p className="mb-5 leading-relaxed text-gray-400">
-              At Amazon, I built a Lambda-driven migration pipeline that
-              processed 14M+ records in under 15 minutes and owned the frontend
-              for a labor planning tool used across 140+ facilities. At
-              Executive Homes, I designed 40+ reusable React components and
-              built a real-time offline-first collaboration system using
-              Replicache and Aurora. At New York Life, I'm building
-              React/TypeScript interfaces for an internal platform that helps
-              agents guide clients through product options.
-            </p>
-
             <p className="mb-10 leading-relaxed text-gray-400">
               I like building thoughtful software that balances clean
               architecture with real-world usability, especially where developer

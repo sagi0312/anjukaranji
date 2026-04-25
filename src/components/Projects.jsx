@@ -95,14 +95,13 @@ export default function Projects() {
           </div>
 
           {/* Additional experience */}
-          <div className="mt-12 border-t border-gray-800 pt-8 text-sm text-gray-400">
-            <span
-              className="font-semibold text-green-400"
-              style={{ fontFamily: "'DM Serif Display', Georgia, serif" }}
-            >
-              {additionalExperience.title}:
-            </span>{" "}
-            {additionalExperience.description}
+          <div className="mt-8 border border-gray-800 rounded-xl p-6 bg-gray-800 bg-opacity-20 flex flex-col sm:flex-row sm:items-start gap-3">
+            <span className="flex-shrink-0 text-xs font-semibold tracking-widest uppercase text-green-400 pt-0.5">
+              Also
+            </span>
+            <p className="text-sm text-gray-400 leading-relaxed">
+              {additionalExperience.description}
+            </p>
           </div>
         </div>
       </section>

@@ -90,7 +90,7 @@ export default function About() {
         </div>
 
         {/* Stat bar */}
-        <div className="border-t border-gray-800">
+        <div className="border-t border-b border-gray-800">
           <div className="container mx-auto px-10 grid grid-cols-2 md:grid-cols-4 divide-x divide-gray-800">
             {[
               { num: "~5 yrs", label: "engineering experience" },

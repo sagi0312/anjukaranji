@@ -69,7 +69,7 @@ export default function Skills() {
                 {awsSkills.map((service) => (
                   <span
                     key={service}
-                    className="text-xs text-gray-400 bg-gray-800 border border-gray-700 rounded-lg px-3 py-1.5 hover:border-green-400 hover:border-opacity-40 hover:text-gray-200 transition-all cursor-default"
+                    className="text-xs text-gray-400 bg-gray-800 border border-gray-700 rounded-lg px-3 py-1.5 hover:border-green-400 hover:border-opacity-40 hover:text-gray-200 transition-all cursor-default whitespace-nowrap"
                   >
                     {service}
                   </span>

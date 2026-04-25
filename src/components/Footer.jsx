@@ -2,14 +2,8 @@ const Footer = () => {
   return (
     <footer className="bg-gray-900 border-t border-gray-800 py-8">
       <div className="container mx-auto px-10 flex flex-col md:flex-row justify-between items-center gap-4">
-        <span
-          className="text-sm font-normal"
-          style={{
-            fontFamily: "'DM Serif Display', Georgia, serif",
-            color: "#e8e3d5",
-          }}
-        >
-          Anju Karanji
+        <span className="text-xs text-gray-600 tracking-wide">
+          Full-Stack Engineer · React · Java · TypeScript · AWS
         </span>
 
         <span className="text-xs text-gray-600">

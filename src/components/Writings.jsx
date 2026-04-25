@@ -32,12 +32,12 @@ export default function Writings({ posts }) {
           </div>
 
           {/* Post cards */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 max-w-4xl mx-auto">
+          <div className="flex flex-wrap justify-center gap-4 max-w-4xl mx-auto">
             {posts.map((post) => (
               <Link
                 key={post.slug}
                 to={`/writings/${post.slug}`}
-                className="group flex flex-col justify-between border border-gray-800 rounded-xl p-6 bg-gray-800 bg-opacity-40 transition-all duration-200 hover:border-green-400 hover:border-opacity-40 hover:-translate-y-0.5 focus:outline-none focus:ring-1 focus:ring-green-400"
+                className="group flex flex-col justify-between border border-gray-800 rounded-xl p-6 bg-gray-800 bg-opacity-40 transition-all duration-200 hover:border-green-400 hover:border-opacity-40 hover:-translate-y-0.5 focus:outline-none focus:ring-1 focus:ring-green-400 w-full sm:w-[calc(50%-8px)] lg:w-[calc(33.333%-11px)]"
                 aria-label={`Read ${post.frontmatter.title}`}
               >
                 <div>

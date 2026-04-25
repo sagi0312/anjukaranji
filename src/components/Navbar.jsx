@@ -15,7 +15,7 @@ export default function Navbar() {
   ];
 
   return (
-    <header className="bg-gray-900 border-b border-gray-800 sticky top-0 z-10">
+    <header className="bg-gray-900 border-b border-gray-800 sticky top-0 z-50">
       <div className="container mx-auto flex px-10 py-4 items-center">
         {/* Logo */}
         <Link

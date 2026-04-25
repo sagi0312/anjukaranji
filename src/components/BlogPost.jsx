@@ -1,6 +1,5 @@
 import { useParams, useNavigate } from "react-router-dom";
 import { useEffect } from "react";
-import { ArrowLeftIcon } from "@heroicons/react/24/solid";
 
 export default function BlogPost({ posts }) {
   const { slug } = useParams();
@@ -10,8 +9,6 @@ export default function BlogPost({ posts }) {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
-
-  const goToWritings = () => navigate("/writings");
 
   if (!post) {
     return (
@@ -28,13 +25,6 @@ export default function BlogPost({ posts }) {
         >
           Post not found
         </h1>
-        <button
-          onClick={goToWritings}
-          className="inline-flex items-center gap-2 text-sm text-green-400 hover:text-green-300 transition-colors"
-        >
-          <ArrowLeftIcon className="w-4 h-4" />
-          Back to writings
-        </button>
       </div>
     );
   }
@@ -50,15 +40,6 @@ export default function BlogPost({ posts }) {
 
       <div className="bg-gray-900 min-h-screen">
         <article className="container mx-auto px-5 md:px-10 py-12 max-w-2xl">
-          {/* Back button */}
-          <button
-            onClick={goToWritings}
-            className="inline-flex items-center gap-2 text-xs font-semibold tracking-widest uppercase text-gray-500 hover:text-green-400 transition-colors mb-12"
-          >
-            <ArrowLeftIcon className="w-3.5 h-3.5" />
-            Writings
-          </button>
-
           {/* Header */}
           <header className="mb-12 border-b border-gray-800 pb-10">
             <p className="text-green-400 text-xs font-semibold tracking-widest uppercase mb-5">
@@ -74,7 +55,7 @@ export default function BlogPost({ posts }) {
               {post.frontmatter.title}
             </h1>
             {post.frontmatter.subtitle && (
-              <p className="text-lg text-gray-400 leading-relaxed">
+              <p className="text-lg text-gray-300 leading-relaxed">
                 {post.frontmatter.subtitle}
               </p>
             )}
@@ -91,8 +72,8 @@ export default function BlogPost({ posts }) {
                         prose-strong:text-gray-200 prose-strong:font-semibold
                         prose-code:text-green-400 prose-code:bg-gray-800 prose-code:px-1.5 prose-code:py-0.5 prose-code:rounded prose-code:text-sm prose-code:break-words
                         prose-pre:bg-gray-800 prose-pre:border prose-pre:border-gray-700 prose-pre:rounded-xl prose-pre:overflow-x-auto
-                        prose-blockquote:border-l-2 prose-blockquote:border-green-400 prose-blockquote:text-gray-400 prose-blockquote:pl-5 prose-blockquote:italic
-                        prose-ul:text-gray-400 prose-ol:text-gray-400 prose-li:text-gray-400 prose-li:mb-1
+                        prose-blockquote:border-l-2 prose-blockquote:border-green-400 prose-blockquote:text-gray-300 prose-blockquote:pl-5 prose-blockquote:italic
+                        prose-ul:text-gray-300 prose-ol:text-gray-300 prose-li:text-gray-300 prose-li:mb-1
                         prose-img:rounded-xl prose-img:shadow-lg prose-img:my-8"
             style={{
               "--tw-prose-headings-font-family":
@@ -100,17 +81,6 @@ export default function BlogPost({ posts }) {
             }}
           >
             <PostContent />
-          </div>
-
-          {/* Footer nav */}
-          <div className="mt-16 pt-8 border-t border-gray-800">
-            <button
-              onClick={goToWritings}
-              className="inline-flex items-center gap-2 text-sm text-gray-500 hover:text-green-400 transition-colors"
-            >
-              <ArrowLeftIcon className="w-4 h-4" />
-              Back to all writings
-            </button>
           </div>
         </article>
       </div>

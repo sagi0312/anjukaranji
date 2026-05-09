@@ -1,7 +1,6 @@
 import ReactAndTheCity1 from "./posts/react-and-the-city-compiler-saves-the-day.mdx";
 import BreakingTheRules from "./posts/breaking-the-rules-at-privet-drive.mdx";
 import CeramicLifeCoach from "./posts/unsolicited-wisdom-from-my-ceramic-life-coach.mdx";
-import DancingAlone from "./posts/dancing-alone-in-a-tutu.mdx";
 import WhenLifeGivesYou from "./posts/when-life-gives-you.mdx";
 import ReactAndTheCity2 from "./posts/react-and-the-city-nevertheless-she-persisted.mdx";
 import ReactAndTheCity3 from "./posts/react-and-the-city-return-of-the-mcp.mdx";
@@ -33,16 +32,6 @@ export const posts = [
       title: "☕️ Unsolicited Wisdom from My Ceramic Life Coach",
       blurb: "A caffeinated conversation with my sarcastic mug",
       date: "2025-02-20",
-    },
-  },
-  {
-    slug: "dancing-alone-in-a-tutu",
-    component: DancingAlone,
-    frontmatter: {
-      title: "Dancing Alone in a Tutu - Happily Ever After",
-      blurb:
-        "Modern love, Eckhart Tolle, and Carrie Bradshaw walk into a blog...",
-      date: "2025-03-01",
     },
   },
   {
